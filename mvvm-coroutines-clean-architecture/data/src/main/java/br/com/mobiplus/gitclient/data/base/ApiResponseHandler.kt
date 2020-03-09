@@ -1,7 +1,7 @@
 package br.com.mobiplus.gitclient.data.base
 
 import br.com.mobiplus.gitclient.domain.base.BaseErrorData
-import br.com.mobiplus.gitclient.domain.base.StatusType
+import br.com.mobiplus.gitclient.domain.base.ResultCode
 import br.com.mobiplus.gitclient.domain.base.FullResultWrapper
 import br.com.mobiplus.gitclient.domain.extensions.fromJsonGeneric
 import com.google.gson.Gson
@@ -28,12 +28,12 @@ object ApiResponseHandler {
                 FullResultWrapper(
                     success = body,
                     keyValueMap = getHeadersHashMap(),
-                    resultCode = StatusType.getByCode(response.code())
+                    resultCode = ResultCode.getByCode(response.code())
                 )
             else
                 FullResultWrapper(
                     keyValueMap = getHeadersHashMap(),
-                    resultCode = StatusType.NULL_BODY_EXCEPTION
+                    resultCode = ResultCode.NULL_BODY_EXCEPTION
                 )
         } else {
             var errorData: ERROR? = null
@@ -54,7 +54,7 @@ object ApiResponseHandler {
             return FullResultWrapper(
                 error = remoteErrorData,
                 keyValueMap = getHeadersHashMap(),
-                resultCode = StatusType.getByCode(response.code())
+                resultCode = ResultCode.getByCode(response.code())
             )
         }
     }

@@ -2,7 +2,7 @@ package br.com.mobiplus.gitclient.data.base
 
 import br.com.mobiplus.gitclient.domain.base.BaseErrorData
 import br.com.mobiplus.gitclient.domain.base.ResultWrapper
-import br.com.mobiplus.gitclient.domain.base.StatusType
+import br.com.mobiplus.gitclient.domain.base.ResultCode
 import br.com.mobiplus.gitclient.domain.base.FullResultWrapper
 import retrofit2.Response
 import java.io.IOException
@@ -24,22 +24,22 @@ open class BaseDataSourceImpl {
 
             val statusCode = when (exception) {
                 is SocketTimeoutException -> {
-                    StatusType.SOCKET_TIMEOUT_EXCEPTION
+                    ResultCode.SOCKET_TIMEOUT_EXCEPTION
                 }
                 is UnknownHostException -> {
-                    StatusType.UNKNOWN_HOST_EXCEPTION
+                    ResultCode.UNKNOWN_HOST_EXCEPTION
                 }
                 is ConnectException -> {
-                    StatusType.CONNECT_EXCEPTION
+                    ResultCode.CONNECT_EXCEPTION
                 }
                 is NoRouteToHostException -> {
-                    StatusType.NO_ROUTE_TO_HOST_EXCEPTION
+                    ResultCode.NO_ROUTE_TO_HOST_EXCEPTION
                 }
                 is IOException -> {
-                    StatusType.IO_EXCEPTION
+                    ResultCode.IO_EXCEPTION
                 }
                 else -> {
-                    StatusType.DEFAULT_EXCEPTION
+                    ResultCode.DEFAULT_EXCEPTION
                 }
             }
 

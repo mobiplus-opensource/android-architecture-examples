@@ -1,9 +1,7 @@
 package br.com.mobiplus.gitclient.domain.base
 
-/**
- * @Descrição: representa os estados de requisição
- */
-enum class StatusType(val code: Int) {
+@Suppress("unused")
+enum class ResultCode(val code: Int) {
     OK(200),
     CREATED(201),
     BAD_REQUEST(400),
@@ -22,7 +20,7 @@ enum class StatusType(val code: Int) {
 
     companion object {
         private val values = values()
-        fun getByCode(code: Int): StatusType {
+        fun getByCode(code: Int): ResultCode {
             return values.firstOrNull { it.code == code } ?: DEFAULT_EXCEPTION
         }
     }

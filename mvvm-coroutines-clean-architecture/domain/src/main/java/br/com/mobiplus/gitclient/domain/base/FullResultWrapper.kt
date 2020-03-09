@@ -4,7 +4,7 @@ class FullResultWrapper<SUCCESS, ERROR>(
     success: SUCCESS? = null,
     error: ERROR? = null,
     val keyValueMap: MutableMap<String, String>? = null,
-    val resultCode: StatusType = StatusType.DEFAULT_EXCEPTION
+    val resultCode: ResultCode = ResultCode.DEFAULT_EXCEPTION
 ) : ResultWrapper<SUCCESS, ERROR>(success, error) {
 
     override fun <TO_SUCCESS, TO_ERROR> transform(

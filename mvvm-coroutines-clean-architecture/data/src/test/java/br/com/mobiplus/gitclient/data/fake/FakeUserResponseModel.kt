@@ -1,4 +1,4 @@
-package br.com.pebmed.data.pullrequest.model.fake
+package br.com.mobiplus.gitclient.data.fake
 
 import br.com.mobiplus.gitclient.data.pullRequest.model.UserResponseModel
 

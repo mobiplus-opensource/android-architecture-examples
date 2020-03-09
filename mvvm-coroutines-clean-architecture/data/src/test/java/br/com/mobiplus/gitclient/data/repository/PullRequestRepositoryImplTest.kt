@@ -1,11 +1,11 @@
-package br.com.pebmed.data.repository
+package br.com.mobiplus.gitclient.data.repository
 
 import br.com.mobiplus.gitclient.data.pullRequest.PullRequestRemoteDataSource
 import br.com.mobiplus.gitclient.data.pullRequest.PullRequestRepositoryImpl
 import br.com.mobiplus.gitclient.data.pullRequest.model.PullRequestResponseModel
 import br.com.mobiplus.gitclient.data.pullRequest.model.UserResponseModel
-import br.com.pebmed.data.pullrequest.model.fake.FakePullRequestResponseModel
-import br.com.pebmed.data.pullrequest.model.fake.FakeUserResponseModel
+import br.com.mobiplus.gitclient.data.fake.FakePullRequestResponseModel
+import br.com.mobiplus.gitclient.data.fake.FakeUserResponseModel
 import br.com.mobiplus.gitclient.domain.base.FullResultWrapper
 import io.mockk.*
 import io.mockk.impl.annotations.MockK

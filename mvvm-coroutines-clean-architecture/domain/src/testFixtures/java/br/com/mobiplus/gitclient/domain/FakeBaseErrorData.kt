@@ -1,4 +1,4 @@
-package br.com.pebmed.domain
+package br.com.mobiplus.gitclient.domain
 
 import br.com.mobiplus.gitclient.domain.base.BaseErrorData
 import br.com.mobiplus.gitclient.domain.base.BaseErrorStatus

@@ -1,6 +1,6 @@
 package br.com.pebmed.domain
 
-import br.com.pebmed.domain.model.GitRepoModel
+import br.com.mobiplus.gitclient.domain.model.GitRepoModel
 
 class FakeGitRepoModel {
     

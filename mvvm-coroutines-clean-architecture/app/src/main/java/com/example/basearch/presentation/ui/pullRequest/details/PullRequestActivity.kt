@@ -5,8 +5,8 @@ import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import br.com.pebmed.domain.model.PullRequestModel
-import br.com.pebmed.domain.extensions.toCacheFormat
+import br.com.mobiplus.gitclient.domain.model.PullRequestModel
+import br.com.mobiplus.gitclient.domain.extensions.toCacheFormat
 import com.bumptech.glide.Glide
 import com.example.basearch.R
 import com.example.basearch.presentation.extensions.setGone

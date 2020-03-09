@@ -5,7 +5,7 @@ import androidx.room.ColumnInfo
 import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import br.com.pebmed.domain.model.GitRepoModel
+import br.com.mobiplus.gitclient.domain.model.GitRepoModel
 
 @Entity(tableName = "GitRepoModel")
 data class GitRepoEntityModel(

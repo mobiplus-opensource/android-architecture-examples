@@ -1,6 +1,6 @@
 package com.example.basearch.presentation.di
 
-import br.com.pebmed.domain.usecases.GetGitRepoListUseCase
+import br.com.mobiplus.gitclient.domain.usecases.GetGitRepoListUseCase
 import com.example.basearch.presentation.ui.main.MainViewModel
 import com.example.basearch.presentation.ui.pullRequest.list.PullRequestListViewModel
 import com.example.basearch.presentation.ui.pullRequest.details.PullRequestViewModel

@@ -2,8 +2,8 @@ package br.com.pebmed.data.gitrepo.local
 
 import br.com.pebmed.data.gitrepo.local.model.GitRepoEntityModel
 import br.com.pebmed.data.base.BaseDataSourceImpl
-import br.com.pebmed.domain.base.BaseErrorData
-import br.com.pebmed.domain.base.ResultWrapper
+import br.com.mobiplus.gitclient.domain.base.BaseErrorData
+import br.com.mobiplus.gitclient.domain.base.ResultWrapper
 
 class GitRepoLocalDataSource(private val gitRepoDao: GitRepoDao) : BaseDataSourceImpl() {
     suspend fun getGitRepoList(): ResultWrapper<List<GitRepoEntityModel>, BaseErrorData<Unit>> {

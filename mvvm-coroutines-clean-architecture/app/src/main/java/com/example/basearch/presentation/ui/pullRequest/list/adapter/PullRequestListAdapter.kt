@@ -4,7 +4,7 @@ import android.app.Activity
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import br.com.pebmed.domain.model.PullRequestModel
+import br.com.mobiplus.gitclient.domain.model.PullRequestModel
 import com.example.basearch.R
 
 class PullRequestListAdapter(

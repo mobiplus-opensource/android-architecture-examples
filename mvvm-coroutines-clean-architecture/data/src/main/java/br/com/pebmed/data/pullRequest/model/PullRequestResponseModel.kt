@@ -1,6 +1,6 @@
 package br.com.pebmed.data.pullRequest.model
 
-import br.com.pebmed.domain.model.PullRequestModel
+import br.com.mobiplus.gitclient.domain.model.PullRequestModel
 import com.google.gson.annotations.SerializedName
 import java.util.*
 

@@ -1,7 +1,7 @@
 package br.com.pebmed.domain
 
-import br.com.pebmed.domain.base.FullResultWrapper
-import br.com.pebmed.domain.base.ResultWrapper
+import br.com.mobiplus.gitclient.domain.base.FullResultWrapper
+import br.com.mobiplus.gitclient.domain.base.ResultWrapper
 
 class FakeResultWrapper {
 

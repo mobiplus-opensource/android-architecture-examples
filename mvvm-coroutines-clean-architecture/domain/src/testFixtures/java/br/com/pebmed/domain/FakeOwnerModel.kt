@@ -1,6 +1,6 @@
 package br.com.pebmed.domain
 
-import br.com.pebmed.domain.model.OwnerModel
+import br.com.mobiplus.gitclient.domain.model.OwnerModel
 
 class FakeOwnerModel {
     

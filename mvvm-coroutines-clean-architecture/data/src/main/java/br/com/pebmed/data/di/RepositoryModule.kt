@@ -5,8 +5,8 @@ import br.com.pebmed.data.pullRequest.PullRequestRepositoryImpl
 import br.com.pebmed.data.gitrepo.GitRepoRepositoryImpl
 import br.com.pebmed.data.gitrepo.local.GitRepoLocalDataSource
 import br.com.pebmed.data.gitrepo.remote.GitRepoRemoteDataSource
-import br.com.pebmed.domain.repository.PullRequestRepository
-import br.com.pebmed.domain.repository.GitRepoRepository
+import br.com.mobiplus.gitclient.domain.repository.PullRequestRepository
+import br.com.mobiplus.gitclient.domain.repository.GitRepoRepository
 import org.koin.dsl.module
 
 val repositoryModule = module {

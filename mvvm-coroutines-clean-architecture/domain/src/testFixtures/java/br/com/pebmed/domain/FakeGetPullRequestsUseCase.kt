@@ -1,6 +1,6 @@
 package br.com.pebmed.domain
 
-import br.com.pebmed.domain.usecases.GetPullRequestsUseCase
+import br.com.mobiplus.gitclient.domain.usecases.GetPullRequestsUseCase
 
 class FakeGetPullRequestsUseCase {
 

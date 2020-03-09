@@ -6,7 +6,7 @@ import androidx.test.rule.ActivityTestRule
 import br.com.pebmed.domain.FakePullRequestModel
 import br.com.pebmed.domain.FakeResultWrapper
 import br.com.pebmed.domain.FakeUserModel
-import br.com.pebmed.domain.usecases.GetPullRequestUseCase
+import br.com.mobiplus.gitclient.domain.usecases.GetPullRequestUseCase
 import com.example.basearch.R
 import com.example.basearch.presentation.ui.pullRequest.details.PullRequestActivity
 import com.example.basearch.presentation.ui.pullRequest.details.PullRequestViewModel

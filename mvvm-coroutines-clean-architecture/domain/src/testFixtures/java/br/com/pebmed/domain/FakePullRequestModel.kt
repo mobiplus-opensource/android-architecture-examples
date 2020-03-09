@@ -1,7 +1,7 @@
 package br.com.pebmed.domain
 
-import br.com.pebmed.domain.model.PullRequestModel
-import br.com.pebmed.domain.model.UserModel
+import br.com.mobiplus.gitclient.domain.model.PullRequestModel
+import br.com.mobiplus.gitclient.domain.model.UserModel
 import java.util.*
 
 class FakePullRequestModel {

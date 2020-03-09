@@ -4,7 +4,7 @@ import android.app.Activity
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import br.com.pebmed.domain.model.GitRepoModel
+import br.com.mobiplus.gitclient.domain.model.GitRepoModel
 import com.example.basearch.R
 
 class GitRepoListAdapter(

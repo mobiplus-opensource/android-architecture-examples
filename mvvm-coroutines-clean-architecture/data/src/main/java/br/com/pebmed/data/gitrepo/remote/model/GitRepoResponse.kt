@@ -1,6 +1,6 @@
 package br.com.pebmed.data.gitrepo.remote.model
 
-import br.com.pebmed.domain.model.GitRepoModel
+import br.com.mobiplus.gitclient.domain.model.GitRepoModel
 import com.google.gson.annotations.SerializedName
 
 data class GitRepoResponse(

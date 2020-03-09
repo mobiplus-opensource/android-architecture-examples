@@ -2,10 +2,10 @@ package com.example.basearch.presentation.ui.viewmodel
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import br.com.pebmed.domain.*
-import br.com.pebmed.domain.base.BaseErrorData
-import br.com.pebmed.domain.base.BaseErrorStatus
-import br.com.pebmed.domain.model.PullRequestModel
-import br.com.pebmed.domain.usecases.GetPullRequestsUseCase
+import br.com.mobiplus.gitclient.domain.base.BaseErrorData
+import br.com.mobiplus.gitclient.domain.base.BaseErrorStatus
+import br.com.mobiplus.gitclient.domain.model.PullRequestModel
+import br.com.mobiplus.gitclient.domain.usecases.GetPullRequestsUseCase
 import com.example.basearch.presentation.ui.base.ViewState
 import com.example.basearch.presentation.ui.pullRequest.list.PullRequestListViewModel
 import com.jraska.livedata.test

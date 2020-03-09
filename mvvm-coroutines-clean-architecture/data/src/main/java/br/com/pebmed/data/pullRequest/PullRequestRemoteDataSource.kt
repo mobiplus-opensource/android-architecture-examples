@@ -2,8 +2,8 @@ package br.com.pebmed.data.pullRequest
 
 import br.com.pebmed.data.base.BaseDataSourceImpl
 import br.com.pebmed.data.pullRequest.model.PullRequestResponseModel
-import br.com.pebmed.domain.base.BaseErrorData
-import br.com.pebmed.domain.base.FullResultWrapper
+import br.com.mobiplus.gitclient.domain.base.BaseErrorData
+import br.com.mobiplus.gitclient.domain.base.FullResultWrapper
 
 class PullRequestRemoteDataSource(
     private val pullRequestApi: PullRequestApi

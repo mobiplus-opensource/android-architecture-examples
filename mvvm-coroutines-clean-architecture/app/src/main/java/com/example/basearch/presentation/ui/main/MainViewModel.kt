@@ -4,10 +4,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import br.com.pebmed.domain.base.BaseErrorData
-import br.com.pebmed.domain.base.BaseErrorStatus
-import br.com.pebmed.domain.model.GitRepoModel
-import br.com.pebmed.domain.usecases.GetGitRepoListUseCase
+import br.com.mobiplus.gitclient.domain.base.BaseErrorData
+import br.com.mobiplus.gitclient.domain.base.BaseErrorStatus
+import br.com.mobiplus.gitclient.domain.model.GitRepoModel
+import br.com.mobiplus.gitclient.domain.usecases.GetGitRepoListUseCase
 import com.example.basearch.presentation.extensions.loadViewState
 import com.example.basearch.presentation.ui.base.ViewState
 import kotlinx.coroutines.Dispatchers

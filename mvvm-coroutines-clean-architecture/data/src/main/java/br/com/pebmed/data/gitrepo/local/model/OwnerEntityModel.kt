@@ -4,7 +4,7 @@ import androidx.annotation.NonNull
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import br.com.pebmed.domain.model.OwnerModel
+import br.com.mobiplus.gitclient.domain.model.OwnerModel
 
 @Entity(tableName = "OwnerModel")
 data class OwnerEntityModel(

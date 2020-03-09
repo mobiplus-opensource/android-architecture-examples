@@ -1,9 +1,9 @@
 package br.com.pebmed.data.base
 
-import br.com.pebmed.domain.base.BaseErrorData
-import br.com.pebmed.domain.base.StatusType
-import br.com.pebmed.domain.base.FullResultWrapper
-import br.com.pebmed.domain.extensions.fromJsonGeneric
+import br.com.mobiplus.gitclient.domain.base.BaseErrorData
+import br.com.mobiplus.gitclient.domain.base.StatusType
+import br.com.mobiplus.gitclient.domain.base.FullResultWrapper
+import br.com.mobiplus.gitclient.domain.extensions.fromJsonGeneric
 import com.google.gson.Gson
 import retrofit2.Response
 

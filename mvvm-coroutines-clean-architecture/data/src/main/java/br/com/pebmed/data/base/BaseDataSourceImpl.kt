@@ -1,9 +1,9 @@
 package br.com.pebmed.data.base
 
-import br.com.pebmed.domain.base.BaseErrorData
-import br.com.pebmed.domain.base.ResultWrapper
-import br.com.pebmed.domain.base.StatusType
-import br.com.pebmed.domain.base.FullResultWrapper
+import br.com.mobiplus.gitclient.domain.base.BaseErrorData
+import br.com.mobiplus.gitclient.domain.base.ResultWrapper
+import br.com.mobiplus.gitclient.domain.base.StatusType
+import br.com.mobiplus.gitclient.domain.base.FullResultWrapper
 import retrofit2.Response
 import java.io.IOException
 import java.net.ConnectException

@@ -1,9 +1,9 @@
 package br.com.pebmed.data.gitrepo
 
-import br.com.pebmed.domain.base.BaseErrorData
-import br.com.pebmed.domain.base.ResultWrapper
-import br.com.pebmed.domain.model.GitRepoModel
-import br.com.pebmed.domain.repository.GitRepoRepository
+import br.com.mobiplus.gitclient.domain.base.BaseErrorData
+import br.com.mobiplus.gitclient.domain.base.ResultWrapper
+import br.com.mobiplus.gitclient.domain.model.GitRepoModel
+import br.com.mobiplus.gitclient.domain.repository.GitRepoRepository
 import br.com.pebmed.data.base.SharedPreferencesUtil
 import br.com.pebmed.data.gitrepo.local.GitRepoLocalDataSource
 import br.com.pebmed.data.gitrepo.remote.GitRepoRemoteDataSource

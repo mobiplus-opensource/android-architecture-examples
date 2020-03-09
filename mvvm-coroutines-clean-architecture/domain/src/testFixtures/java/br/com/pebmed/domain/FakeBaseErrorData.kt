@@ -1,7 +1,7 @@
 package br.com.pebmed.domain
 
-import br.com.pebmed.domain.base.BaseErrorData
-import br.com.pebmed.domain.base.BaseErrorStatus
+import br.com.mobiplus.gitclient.domain.base.BaseErrorData
+import br.com.mobiplus.gitclient.domain.base.BaseErrorStatus
 
 class FakeBaseErrorData {
 

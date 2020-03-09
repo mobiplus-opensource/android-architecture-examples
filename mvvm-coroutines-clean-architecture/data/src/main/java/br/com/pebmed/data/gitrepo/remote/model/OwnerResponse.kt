@@ -1,6 +1,6 @@
 package br.com.pebmed.data.gitrepo.remote.model
 
-import br.com.pebmed.domain.model.OwnerModel
+import br.com.mobiplus.gitclient.domain.model.OwnerModel
 import com.google.gson.annotations.SerializedName
 
 data class OwnerResponse(

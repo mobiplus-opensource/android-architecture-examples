@@ -3,8 +3,8 @@ package com.example.basearch.presentation.ui.pullRequest.list.adapter
 import android.app.Activity
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import br.com.pebmed.domain.model.PullRequestModel
-import br.com.pebmed.domain.extensions.toCacheFormat
+import br.com.mobiplus.gitclient.domain.model.PullRequestModel
+import br.com.mobiplus.gitclient.domain.extensions.toCacheFormat
 import com.bumptech.glide.Glide
 import com.example.basearch.R
 import com.example.basearch.presentation.extensions.isValidForGlide

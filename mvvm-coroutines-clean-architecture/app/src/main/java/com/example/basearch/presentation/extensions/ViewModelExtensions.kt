@@ -1,7 +1,7 @@
 package com.example.basearch.presentation.extensions
 
 import androidx.lifecycle.ViewModel
-import br.com.pebmed.domain.base.ResultWrapper
+import br.com.mobiplus.gitclient.domain.base.ResultWrapper
 import com.example.basearch.presentation.ui.base.ViewState
 
 /**

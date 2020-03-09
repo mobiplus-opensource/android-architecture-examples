@@ -1,0 +1,87 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+android {
+    def globalConfiguration = rootProject.extensions.getByName("ext")
+
+    compileSdkVersion globalConfiguration["compileSDK"]
+    buildToolsVersion globalConfiguration["buildToolsVersion"]
+
+    defaultConfig {
+        applicationId "com.example.basearch"
+        minSdkVersion globalConfiguration["minSDK"]
+        targetSdkVersion globalConfiguration["targetSDK"]
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+}
+
+dependencies {
+    implementation project(path: ':domain')
+    implementation project(path: ':data')
+
+    def dependencies = rootProject.ext.dependencies
+    def testDependencies = rootProject.ext.testDependecies
+
+    implementation dependencies.kotlin
+
+    //KTX
+    implementation dependencies.ktx
+
+    implementation dependencies.appCompat
+    implementation dependencies.constraintlayout
+    implementation dependencies.cardView
+    implementation dependencies.recyclerView
+
+
+    //Glide
+    implementation dependencies.glide
+
+    //Koin
+    // Koin AndroidX Scope features
+    implementation dependencies.koin
+
+    // Koin AndroidX ViewModel features
+    implementation dependencies.koinViewModel
+
+    //LifeCycle
+    implementation dependencies.lifeCycle
+
+    //CircleImageView
+    implementation dependencies.circleImageView
+
+    testImplementation(testFixtures(project(":domain")))
+    testImplementation testDependencies.junit
+    testImplementation 'com.jraska.livedata:testing-ktx:1.1.1'
+    testImplementation "io.mockk:mockk:1.9.3"
+    testImplementation 'androidx.arch.core:core-testing:2.1.0'
+
+    androidTestImplementation(testFixtures(project(":domain")))
+    androidTestImplementation testDependencies.koin
+    androidTestImplementation testDependencies.runner
+    androidTestImplementation testDependencies.espresso
+    androidTestImplementation "io.mockk:mockk-android:1.9.3"
+    androidTestImplementation 'androidx.test:rules:1.2.0'
+    androidTestImplementation('com.schibsted.spain:barista:3.2.0') {
+        exclude group: 'org.jetbrains.kotlin' // Only if you already use Kotlin in your project
+    }
+}

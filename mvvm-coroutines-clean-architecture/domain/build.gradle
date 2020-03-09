@@ -1,0 +1,28 @@
+apply plugin: 'java-library'
+apply plugin: 'kotlin'
+apply plugin: 'java-test-fixtures'
+
+dependencies {
+    def dependencies = rootProject.ext.dependencies
+
+    implementation dependencies.kotlin
+
+    //Koin
+    implementation dependencies.koin
+
+    //Coroutines
+    implementation dependencies.kotlinxCoroutines
+
+    //GSON
+    implementation dependencies.gson
+
+    testImplementation "io.mockk:mockk:1.9.3"
+    testImplementation testDependecies.junit
+
+    testFixturesImplementation('com.google.code.gson:gson:2.8.5')
+    testFixturesImplementation('org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.61')
+    testFixturesImplementation('junit:junit:4.12')
+}
+
+sourceCompatibility = "8"
+targetCompatibility = "8"

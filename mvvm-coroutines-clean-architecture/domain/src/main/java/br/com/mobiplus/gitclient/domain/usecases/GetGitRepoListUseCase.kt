@@ -1,7 +1,7 @@
 package br.com.mobiplus.gitclient.domain.usecases
 
 import br.com.mobiplus.gitclient.domain.base.BaseErrorData
-import br.com.mobiplus.gitclient.domain.base.BaseErrorStatus
+import br.com.mobiplus.gitclient.domain.base.ResultCode
 import br.com.mobiplus.gitclient.domain.base.resultwrapper.ResultWrapper
 import br.com.mobiplus.gitclient.domain.base.usecase.BaseAsyncUseCase
 import br.com.mobiplus.gitclient.domain.model.GitRepoModel
@@ -18,9 +18,9 @@ import br.com.mobiplus.gitclient.domain.usecases.GetGitRepoListUseCase.Params
  */
 class GetGitRepoListUseCase(
     private val gitRepoRepository: GitRepoRepository
-) : BaseAsyncUseCase<ResultWrapper<List<GitRepoModel>, BaseErrorData<BaseErrorStatus>>, Params>() {
+) : BaseAsyncUseCase<ResultWrapper<List<GitRepoModel>, BaseErrorData<ResultCode>>, Params>() {
 
-    override suspend fun runAsync(params: Params): ResultWrapper<List<GitRepoModel>, BaseErrorData<BaseErrorStatus>> {
+    override suspend fun runAsync(params: Params): ResultWrapper<List<GitRepoModel>, BaseErrorData<ResultCode>> {
         val result = gitRepoRepository.getGitRepoList(
             fromRemote = params.forceSync,
             page = 1,
@@ -31,7 +31,7 @@ class GetGitRepoListUseCase(
             gitRepoRepository.saveLastSyncDate(getCurrentDateTime().toCacheFormat())
         }
 
-        return result.transformError { BaseErrorData(errorBody = BaseErrorStatus.DEFAULT_ERROR) }
+        return result.transformError { BaseErrorData(errorBody = ResultCode.DEFAULT_EXCEPTION) }
     }
 
     data class Params(val forceSync: Boolean)

@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import br.com.mobiplus.gitclient.domain.base.BaseErrorData
-import br.com.mobiplus.gitclient.domain.base.BaseErrorStatus
+import br.com.mobiplus.gitclient.domain.base.ResultCode
 import br.com.mobiplus.gitclient.domain.model.GitRepoModel
 import br.com.mobiplus.gitclient.domain.usecases.GetGitRepoListUseCase
 import br.com.mobiplus.gitclient.presentation.extensions.loadViewState
@@ -15,8 +15,8 @@ import kotlinx.coroutines.launch
 
 class MainViewModel(private val getGitRepoListUseCase: GetGitRepoListUseCase) : ViewModel() {
     private val _gitRepoListState =
-        MutableLiveData<ViewState<List<GitRepoModel>, BaseErrorData<BaseErrorStatus>>>()
-    val gitRepoListState: LiveData<ViewState<List<GitRepoModel>, BaseErrorData<BaseErrorStatus>>>
+        MutableLiveData<ViewState<List<GitRepoModel>, BaseErrorData<ResultCode>>>()
+    val gitRepoListState: LiveData<ViewState<List<GitRepoModel>, BaseErrorData<ResultCode>>>
         get() = _gitRepoListState
 
     init {

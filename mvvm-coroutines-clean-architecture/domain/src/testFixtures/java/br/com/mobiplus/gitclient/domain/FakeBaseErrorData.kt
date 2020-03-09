@@ -1,7 +1,7 @@
 package br.com.mobiplus.gitclient.domain
 
 import br.com.mobiplus.gitclient.domain.base.BaseErrorData
-import br.com.mobiplus.gitclient.domain.base.BaseErrorStatus
+import br.com.mobiplus.gitclient.domain.base.ResultCode
 
 class FakeBaseErrorData {
 
@@ -11,10 +11,8 @@ class FakeBaseErrorData {
         )
 
         fun mockStatusError() = BaseErrorData (
-            errorBody = BaseErrorStatus.DEFAULT_ERROR
+            errorBody = ResultCode.DEFAULT_EXCEPTION
         )
-
-        fun mockBaseErrorStatus_Default() = BaseErrorStatus.DEFAULT_ERROR
 
 //        fun <ERROR_BODY> fakeError(
 //            error: ERROR_BODY? = null,

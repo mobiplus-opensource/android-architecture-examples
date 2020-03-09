@@ -3,7 +3,7 @@ package br.com.mobiplus.gitclient.presentation.ui.viewmodel
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import br.com.mobiplus.gitclient.domain.*
 import br.com.mobiplus.gitclient.domain.base.BaseErrorData
-import br.com.mobiplus.gitclient.domain.base.BaseErrorStatus
+import br.com.mobiplus.gitclient.domain.base.ResultCode
 import br.com.mobiplus.gitclient.domain.model.PullRequestModel
 import br.com.mobiplus.gitclient.domain.usecases.GetPullRequestsUseCase
 import br.com.mobiplus.gitclient.presentation.ui.base.ViewState
@@ -55,7 +55,7 @@ class PullRequestListViewModelTest {
         val testObserver = viewModel.pullRequestListState.test()
         testObserver.assertNoValue()
 
-        val resultWrapper = FakeResultWrapper.mockSuccess<List<PullRequestModel>, BaseErrorData<BaseErrorStatus>>(
+        val resultWrapper = FakeResultWrapper.mockSuccess<List<PullRequestModel>, BaseErrorData<ResultCode>>(
             FakePullRequestModel.mockList(1)
         )
 
@@ -93,7 +93,7 @@ class PullRequestListViewModelTest {
         val testObserver = viewModel.pullRequestListState.test()
         testObserver.assertNoValue()
 
-        val emptyResultWrapper = FakeResultWrapper.mockSuccess<List<PullRequestModel>, BaseErrorData<BaseErrorStatus>>(
+        val emptyResultWrapper = FakeResultWrapper.mockSuccess<List<PullRequestModel>, BaseErrorData<ResultCode>>(
             success = listOf()
         )
 
@@ -126,7 +126,7 @@ class PullRequestListViewModelTest {
         testObserver.assertNoValue()
 
 
-        val errorResultWrapper = FakeResultWrapper.mockError<List<PullRequestModel>, BaseErrorData<BaseErrorStatus>>(
+        val errorResultWrapper = FakeResultWrapper.mockError<List<PullRequestModel>, BaseErrorData<ResultCode>>(
             FakeBaseErrorData.mockStatusError()
         )
 

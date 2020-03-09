@@ -5,7 +5,7 @@ import androidx.room.ColumnInfo
 import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import br.com.pebmed.domain.entities.RepoModel
+import br.com.pebmed.domain.model.RepoModel
 
 @Entity(tableName = "RepoModel")
 data class RepoEntityModel(

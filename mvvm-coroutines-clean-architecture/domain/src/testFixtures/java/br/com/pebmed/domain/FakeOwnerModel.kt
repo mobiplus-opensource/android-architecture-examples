@@ -1,6 +1,6 @@
 package br.com.pebmed.domain
 
-import br.com.pebmed.domain.entities.OwnerModel
+import br.com.pebmed.domain.model.OwnerModel
 
 class FakeOwnerModel {
     

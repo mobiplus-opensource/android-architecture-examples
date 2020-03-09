@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import br.com.pebmed.domain.base.BaseErrorData
 import br.com.pebmed.domain.base.BaseErrorStatus
-import br.com.pebmed.domain.entities.RepoModel
+import br.com.pebmed.domain.model.RepoModel
 import br.com.pebmed.domain.usecases.GetReposUseCase
 import com.example.basearch.presentation.extensions.loadViewState
 import com.example.basearch.presentation.ui.base.ViewState

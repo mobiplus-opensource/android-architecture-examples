@@ -1,6 +1,6 @@
 package br.com.pebmed.domain
 
-import br.com.pebmed.domain.entities.RepoModel
+import br.com.pebmed.domain.model.RepoModel
 
 class FakeGitRepoModel {
     

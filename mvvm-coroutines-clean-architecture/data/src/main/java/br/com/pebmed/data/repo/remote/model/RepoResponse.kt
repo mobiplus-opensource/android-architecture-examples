@@ -1,6 +1,6 @@
 package br.com.pebmed.data.repo.remote.model
 
-import br.com.pebmed.domain.entities.RepoModel
+import br.com.pebmed.domain.model.RepoModel
 import com.google.gson.annotations.SerializedName
 
 data class RepoResponse(

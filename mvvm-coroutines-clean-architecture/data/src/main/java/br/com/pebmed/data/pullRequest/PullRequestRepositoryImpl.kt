@@ -3,7 +3,7 @@ package br.com.pebmed.data.pullRequest
 import br.com.pebmed.data.pullRequest.model.PullRequestResponseModel
 import br.com.pebmed.domain.base.BaseErrorData
 import br.com.pebmed.domain.base.FullResultWrapper
-import br.com.pebmed.domain.entities.PullRequestModel
+import br.com.pebmed.domain.model.PullRequestModel
 import br.com.pebmed.domain.repository.PullRequestRepository
 
 class PullRequestRepositoryImpl(

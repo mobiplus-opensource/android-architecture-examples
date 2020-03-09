@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import br.com.pebmed.domain.entities.RepoModel
+import br.com.pebmed.domain.model.RepoModel
 import com.example.basearch.R
 import com.example.basearch.presentation.extensions.setGone
 import com.example.basearch.presentation.extensions.setVisible

@@ -1,6 +1,6 @@
 package br.com.pebmed.data.pullRequest.model
 
-import br.com.pebmed.domain.entities.UserModel
+import br.com.pebmed.domain.model.UserModel
 import com.google.gson.annotations.SerializedName
 
 data class UserResponseModel(

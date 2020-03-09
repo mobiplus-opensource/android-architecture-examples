@@ -1,6 +1,6 @@
 package br.com.pebmed.data.repo.remote.model
 
-import br.com.pebmed.domain.entities.OwnerModel
+import br.com.pebmed.domain.model.OwnerModel
 import com.google.gson.annotations.SerializedName
 
 data class OwnerResponse(

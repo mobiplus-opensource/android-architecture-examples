@@ -4,7 +4,7 @@ import br.com.pebmed.domain.base.BaseErrorData
 import br.com.pebmed.domain.base.BaseErrorStatus
 import br.com.pebmed.domain.base.ResultWrapper
 import br.com.pebmed.domain.base.usecase.BaseAsyncUseCase
-import br.com.pebmed.domain.entities.PullRequestModel
+import br.com.pebmed.domain.model.PullRequestModel
 import br.com.pebmed.domain.repository.PullRequestRepository
 
 class GetPullRequestUseCase(

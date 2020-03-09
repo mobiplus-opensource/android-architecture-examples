@@ -2,7 +2,7 @@ package br.com.pebmed.data.repo
 
 import br.com.pebmed.domain.base.BaseErrorData
 import br.com.pebmed.domain.base.ResultWrapper
-import br.com.pebmed.domain.entities.RepoModel
+import br.com.pebmed.domain.model.RepoModel
 import br.com.pebmed.domain.repository.RepoRepository
 import br.com.pebmed.data.base.SharedPreferencesUtil
 import br.com.pebmed.data.repo.local.RepoLocalDataSource

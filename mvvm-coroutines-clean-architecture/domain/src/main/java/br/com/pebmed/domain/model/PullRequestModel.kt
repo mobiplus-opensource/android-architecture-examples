@@ -1,4 +1,4 @@
-package br.com.pebmed.domain.entities
+package br.com.pebmed.domain.model
 
 import java.util.*
 

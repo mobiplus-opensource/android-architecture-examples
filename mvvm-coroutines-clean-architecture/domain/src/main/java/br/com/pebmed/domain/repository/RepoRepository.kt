@@ -2,7 +2,7 @@ package br.com.pebmed.domain.repository
 
 import br.com.pebmed.domain.base.BaseErrorData
 import br.com.pebmed.domain.base.ResultWrapper
-import br.com.pebmed.domain.entities.RepoModel
+import br.com.pebmed.domain.model.RepoModel
 
 interface RepoRepository {
     fun getLastSyncDate(): String

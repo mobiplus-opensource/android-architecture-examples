@@ -1,4 +1,4 @@
-package br.com.pebmed.domain.entities
+package br.com.pebmed.domain.model
 
 data class UserModel(
     val login: String,

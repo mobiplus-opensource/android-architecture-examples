@@ -1,6 +1,6 @@
 package br.com.pebmed.domain
 
-import br.com.pebmed.domain.entities.UserModel
+import br.com.pebmed.domain.model.UserModel
 
 class FakeUserModel {
     

@@ -1,4 +1,4 @@
-package br.com.pebmed.domain.entities
+package br.com.pebmed.domain.model
 
 data class RepoModel(
     val description: String? = null,

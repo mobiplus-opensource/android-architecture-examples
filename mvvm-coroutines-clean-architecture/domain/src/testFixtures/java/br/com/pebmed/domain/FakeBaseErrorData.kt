@@ -2,8 +2,6 @@ package br.com.pebmed.domain
 
 import br.com.pebmed.domain.base.BaseErrorData
 import br.com.pebmed.domain.base.BaseErrorStatus
-import br.com.pebmed.domain.base.ResultWrapper
-import br.com.pebmed.domain.entities.PullRequestModel
 
 class FakeBaseErrorData {
 

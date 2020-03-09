@@ -4,8 +4,8 @@ import br.com.pebmed.domain.FakeGetPullRequestsUseCase
 import br.com.pebmed.domain.FakePullRequestModel
 import br.com.pebmed.domain.FakeUserModel
 import br.com.pebmed.domain.base.FullResultWrapper
-import br.com.pebmed.domain.entities.PullRequestModel
-import br.com.pebmed.domain.entities.UserModel
+import br.com.pebmed.domain.model.PullRequestModel
+import br.com.pebmed.domain.model.UserModel
 import br.com.pebmed.domain.repository.PullRequestRepository
 import io.mockk.*
 import io.mockk.impl.annotations.MockK

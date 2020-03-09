@@ -2,7 +2,7 @@ package br.com.pebmed.domain.repository
 
 import br.com.pebmed.domain.base.BaseErrorData
 import br.com.pebmed.domain.base.ResultWrapper
-import br.com.pebmed.domain.entities.PullRequestModel
+import br.com.pebmed.domain.model.PullRequestModel
 
 interface PullRequestRepository {
     suspend fun getPullRequests(

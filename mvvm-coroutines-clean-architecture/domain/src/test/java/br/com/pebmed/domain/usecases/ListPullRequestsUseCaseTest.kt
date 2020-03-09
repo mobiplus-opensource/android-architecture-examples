@@ -3,7 +3,7 @@ package br.com.pebmed.domain.usecases
 import br.com.pebmed.domain.FakeGetPullRequestsUseCase
 import br.com.pebmed.domain.FakePullRequestModel
 import br.com.pebmed.domain.FakeUserModel
-import br.com.pebmed.domain.base.CompleteResultWrapper
+import br.com.pebmed.domain.base.FullResultWrapper
 import br.com.pebmed.domain.entities.PullRequestModel
 import br.com.pebmed.domain.entities.UserModel
 import br.com.pebmed.domain.repository.PullRequestRepository
@@ -40,7 +40,7 @@ class ListPullRequestsUseCaseTest {
     fun `SHOULD return the correct success object`() = runBlocking {
         coEvery {
             pullRequestRepository.getPullRequests(any(), any())
-        } returns CompleteResultWrapper(
+        } returns FullResultWrapper(
             success = listOf(pullRequest)
         )
 
@@ -54,7 +54,7 @@ class ListPullRequestsUseCaseTest {
     fun `SHOULD call correct dependency function WHEN run`() = runBlocking {
         coEvery {
             pullRequestRepository.getPullRequests(any(), any())
-        } returns CompleteResultWrapper(
+        } returns FullResultWrapper(
             success = listOf(pullRequest)
         )
 

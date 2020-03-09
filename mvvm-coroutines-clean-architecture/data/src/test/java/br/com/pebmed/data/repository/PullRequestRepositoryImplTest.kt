@@ -6,7 +6,7 @@ import br.com.pebmed.data.pullRequest.model.PullRequestResponseModel
 import br.com.pebmed.data.pullRequest.model.UserResponseModel
 import br.com.pebmed.data.pullrequest.model.fake.FakePullRequestResponseModel
 import br.com.pebmed.data.pullrequest.model.fake.FakeUserResponseModel
-import br.com.pebmed.domain.base.CompleteResultWrapper
+import br.com.pebmed.domain.base.FullResultWrapper
 import io.mockk.*
 import io.mockk.impl.annotations.MockK
 import kotlinx.coroutines.runBlocking
@@ -35,7 +35,7 @@ class PullRequestRepositoryImplTest {
 
         coEvery {
             pullRequestRemoteDataSource.getPullRequests(any(), any())
-        } returns CompleteResultWrapper(
+        } returns FullResultWrapper(
             success = listOf(pullRequestModel)
         )
 
@@ -59,7 +59,7 @@ class PullRequestRepositoryImplTest {
 
         coEvery {
             pullRequestRemoteDataSource.getPullRequests(any(), any())
-        } returns CompleteResultWrapper(
+        } returns FullResultWrapper(
             success = listOf(pullRequestModel)
         )
 

@@ -2,13 +2,13 @@ package br.com.pebmed.data.base
 
 import br.com.pebmed.domain.base.BaseErrorData
 import br.com.pebmed.domain.base.StatusType
-import br.com.pebmed.domain.base.CompleteResultWrapper
+import br.com.pebmed.domain.base.FullResultWrapper
 import br.com.pebmed.domain.extensions.fromJsonGeneric
 import com.google.gson.Gson
 import retrofit2.Response
 
 object ApiResponseHandler {
-    inline fun <SUCCESS, reified ERROR> build(response: Response<SUCCESS>): CompleteResultWrapper<SUCCESS, BaseErrorData<ERROR>> {
+    inline fun <SUCCESS, reified ERROR> build(response: Response<SUCCESS>): FullResultWrapper<SUCCESS, BaseErrorData<ERROR>> {
         val headers = response.headers()
 
         val getHeadersHashMap = {
@@ -25,13 +25,13 @@ object ApiResponseHandler {
         if (response.isSuccessful) {
             val body = response.body()
             return if (body != null)
-                CompleteResultWrapper(
+                FullResultWrapper(
                     success = body,
                     keyValueMap = getHeadersHashMap(),
                     resultCode = StatusType.getByCode(response.code())
                 )
             else
-                CompleteResultWrapper(
+                FullResultWrapper(
                     keyValueMap = getHeadersHashMap(),
                     resultCode = StatusType.NULL_BODY_EXCEPTION
                 )
@@ -51,7 +51,7 @@ object ApiResponseHandler {
                 response.message()
             )
 
-            return CompleteResultWrapper(
+            return FullResultWrapper(
                 error = remoteErrorData,
                 keyValueMap = getHeadersHashMap(),
                 resultCode = StatusType.getByCode(response.code())

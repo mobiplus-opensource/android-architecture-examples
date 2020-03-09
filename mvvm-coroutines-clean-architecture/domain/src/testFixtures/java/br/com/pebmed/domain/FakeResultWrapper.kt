@@ -1,6 +1,6 @@
 package br.com.pebmed.domain
 
-import br.com.pebmed.domain.base.CompleteResultWrapper
+import br.com.pebmed.domain.base.FullResultWrapper
 import br.com.pebmed.domain.base.ResultWrapper
 
 class FakeResultWrapper {
@@ -18,14 +18,14 @@ class FakeResultWrapper {
             )
         }
 
-        fun <SUCCESS, ERROR> mockCompleteSuccess(success: SUCCESS): ResultWrapper<SUCCESS, ERROR> {
-            return CompleteResultWrapper(
+        fun <SUCCESS, ERROR> mockFullSuccess(success: SUCCESS): ResultWrapper<SUCCESS, ERROR> {
+            return FullResultWrapper(
                     success = success
             )
         }
 
-        fun <SUCCESS, ERROR> mockCompleteError(error: ERROR): ResultWrapper<SUCCESS, ERROR> {
-            return CompleteResultWrapper(
+        fun <SUCCESS, ERROR> mockFullError(error: ERROR): ResultWrapper<SUCCESS, ERROR> {
+            return FullResultWrapper(
                     error = error
             )
         }

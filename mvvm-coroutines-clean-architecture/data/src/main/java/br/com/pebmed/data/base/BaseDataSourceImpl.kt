@@ -3,7 +3,7 @@ package br.com.pebmed.data.base
 import br.com.pebmed.domain.base.BaseErrorData
 import br.com.pebmed.domain.base.ResultWrapper
 import br.com.pebmed.domain.base.StatusType
-import br.com.pebmed.domain.base.CompleteResultWrapper
+import br.com.pebmed.domain.base.FullResultWrapper
 import retrofit2.Response
 import java.io.IOException
 import java.net.ConnectException
@@ -12,7 +12,7 @@ import java.net.SocketTimeoutException
 import java.net.UnknownHostException
 
 open class BaseDataSourceImpl {
-    inline fun <SUCCESS, reified ERROR> safeApiCall(executeApiAsync: () -> Response<SUCCESS>): CompleteResultWrapper<SUCCESS, BaseErrorData<ERROR>> {
+    inline fun <SUCCESS, reified ERROR> safeApiCall(executeApiAsync: () -> Response<SUCCESS>): FullResultWrapper<SUCCESS, BaseErrorData<ERROR>> {
         return try {
             val response = executeApiAsync.invoke()
 
@@ -43,7 +43,7 @@ open class BaseDataSourceImpl {
                 }
             }
 
-            CompleteResultWrapper(
+            FullResultWrapper(
                 error = baseErrorData,
                 resultCode = statusCode
             )
@@ -53,11 +53,11 @@ open class BaseDataSourceImpl {
     inline fun <SUCCESS, reified ERROR> safeCall(executeAsync: () -> SUCCESS): ResultWrapper<SUCCESS, BaseErrorData<ERROR>> {
         return try {
             val response = executeAsync.invoke()
-            CompleteResultWrapper(success = response)
+            FullResultWrapper(success = response)
         } catch (exception: Exception) {
             val baseErrorData =
                 BaseErrorData<ERROR>(errorMessage = exception.message)
-            CompleteResultWrapper(error = baseErrorData)
+            FullResultWrapper(error = baseErrorData)
         }
     }
 }

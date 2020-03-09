@@ -1,6 +1,6 @@
 package br.com.pebmed.domain.base
 
-class CompleteResultWrapper<SUCCESS, ERROR>(
+class FullResultWrapper<SUCCESS, ERROR>(
     success: SUCCESS? = null,
     error: ERROR? = null,
     val keyValueMap: MutableMap<String, String>? = null,
@@ -10,16 +10,16 @@ class CompleteResultWrapper<SUCCESS, ERROR>(
     override fun <TO_SUCCESS, TO_ERROR> transform(
         mapperSuccessFunction: (originalSuccess: SUCCESS) -> TO_SUCCESS,
         mapperErrorFunction: (originalError: ERROR?) -> TO_ERROR
-    ): CompleteResultWrapper<TO_SUCCESS, TO_ERROR> {
+    ): FullResultWrapper<TO_SUCCESS, TO_ERROR> {
 
         return if (this.success != null) {
-            CompleteResultWrapper(
+            FullResultWrapper(
                 success = mapperSuccessFunction.invoke(this.success),
                 resultCode = this.resultCode,
                 keyValueMap = this.keyValueMap
             )
         } else {
-            CompleteResultWrapper(
+            FullResultWrapper(
                 error = mapperErrorFunction.invoke(this.error),
                 resultCode = this.resultCode,
                 keyValueMap = this.keyValueMap
@@ -29,15 +29,15 @@ class CompleteResultWrapper<SUCCESS, ERROR>(
 
     override fun <TO_SUCCESS> transformSuccess(
         mapperFunction: (originalSuccess: SUCCESS) -> TO_SUCCESS
-    ): CompleteResultWrapper<TO_SUCCESS, ERROR> {
+    ): FullResultWrapper<TO_SUCCESS, ERROR> {
         return if (this.success != null) {
-            CompleteResultWrapper(
+            FullResultWrapper(
                 success = mapperFunction.invoke(this.success),
                 resultCode = this.resultCode,
                 keyValueMap = this.keyValueMap
             )
         } else {
-            CompleteResultWrapper(
+            FullResultWrapper(
                 error = this.error,
                 resultCode = this.resultCode,
                 keyValueMap = this.keyValueMap
@@ -47,15 +47,15 @@ class CompleteResultWrapper<SUCCESS, ERROR>(
 
     override fun <TO_ERROR> transformError(
         mapperFunction: (originalError: ERROR?) -> TO_ERROR
-    ): CompleteResultWrapper<SUCCESS, TO_ERROR> {
+    ): FullResultWrapper<SUCCESS, TO_ERROR> {
         return if (this.success != null) {
-            CompleteResultWrapper(
+            FullResultWrapper(
                 success = this.success,
                 resultCode = this.resultCode,
                 keyValueMap = this.keyValueMap
             )
         } else {
-            CompleteResultWrapper(
+            FullResultWrapper(
                 error = mapperFunction.invoke(this.error),
                 resultCode = this.resultCode,
                 keyValueMap = this.keyValueMap

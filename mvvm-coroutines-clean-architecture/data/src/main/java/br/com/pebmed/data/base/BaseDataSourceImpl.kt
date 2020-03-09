@@ -45,7 +45,7 @@ open class BaseDataSourceImpl {
 
             CompleteResultWrapper(
                 error = baseErrorData,
-                statusCode = statusCode
+                resultCode = statusCode
             )
         }
     }

@@ -28,12 +28,12 @@ object ApiResponseHandler {
                 CompleteResultWrapper(
                     success = body,
                     keyValueMap = getHeadersHashMap(),
-                    statusCode = StatusType.getByCode(response.code())
+                    resultCode = StatusType.getByCode(response.code())
                 )
             else
                 CompleteResultWrapper(
                     keyValueMap = getHeadersHashMap(),
-                    statusCode = StatusType.NULL_BODY_EXCEPTION
+                    resultCode = StatusType.NULL_BODY_EXCEPTION
                 )
         } else {
             var errorData: ERROR? = null
@@ -54,7 +54,7 @@ object ApiResponseHandler {
             return CompleteResultWrapper(
                 error = remoteErrorData,
                 keyValueMap = getHeadersHashMap(),
-                statusCode = StatusType.getByCode(response.code())
+                resultCode = StatusType.getByCode(response.code())
             )
         }
     }

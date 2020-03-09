@@ -2,7 +2,7 @@ package br.com.mobiplus.gitclient.data.pullRequest
 
 import br.com.mobiplus.gitclient.data.pullRequest.model.PullRequestResponseModel
 import br.com.mobiplus.gitclient.domain.base.BaseErrorData
-import br.com.mobiplus.gitclient.domain.base.FullResultWrapper
+import br.com.mobiplus.gitclient.domain.base.resultwrapper.FullResultWrapper
 import br.com.mobiplus.gitclient.domain.model.PullRequestModel
 import br.com.mobiplus.gitclient.domain.repository.PullRequestRepository
 

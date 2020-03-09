@@ -3,7 +3,7 @@ package br.com.mobiplus.gitclient.domain.usecases
 import br.com.mobiplus.gitclient.domain.FakeGetPullRequestsUseCase
 import br.com.mobiplus.gitclient.domain.FakePullRequestModel
 import br.com.mobiplus.gitclient.domain.FakeUserModel
-import br.com.mobiplus.gitclient.domain.base.FullResultWrapper
+import br.com.mobiplus.gitclient.domain.base.resultwrapper.FullResultWrapper
 import br.com.mobiplus.gitclient.domain.model.PullRequestModel
 import br.com.mobiplus.gitclient.domain.model.UserModel
 import br.com.mobiplus.gitclient.domain.repository.PullRequestRepository

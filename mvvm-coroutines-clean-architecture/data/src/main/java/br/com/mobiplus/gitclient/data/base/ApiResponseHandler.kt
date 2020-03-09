@@ -2,7 +2,7 @@ package br.com.mobiplus.gitclient.data.base
 
 import br.com.mobiplus.gitclient.domain.base.BaseErrorData
 import br.com.mobiplus.gitclient.domain.base.ResultCode
-import br.com.mobiplus.gitclient.domain.base.FullResultWrapper
+import br.com.mobiplus.gitclient.domain.base.resultwrapper.FullResultWrapper
 import br.com.mobiplus.gitclient.domain.extensions.fromJsonGeneric
 import com.google.gson.Gson
 import retrofit2.Response

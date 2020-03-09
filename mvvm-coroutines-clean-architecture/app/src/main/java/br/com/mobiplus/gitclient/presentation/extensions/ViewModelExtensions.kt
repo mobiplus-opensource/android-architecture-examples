@@ -1,7 +1,7 @@
 package br.com.mobiplus.gitclient.presentation.extensions
 
 import androidx.lifecycle.ViewModel
-import br.com.mobiplus.gitclient.domain.base.ResultWrapper
+import br.com.mobiplus.gitclient.domain.base.resultwrapper.ResultWrapper
 import br.com.mobiplus.gitclient.presentation.ui.base.ViewState
 
 /**

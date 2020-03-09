@@ -1,7 +1,7 @@
 package br.com.mobiplus.gitclient.domain.usecases
 
 import br.com.mobiplus.gitclient.domain.FakeGitRepoModel
-import br.com.mobiplus.gitclient.domain.base.ResultWrapper
+import br.com.mobiplus.gitclient.domain.base.resultwrapper.ResultWrapper
 import br.com.mobiplus.gitclient.domain.repository.GitRepoRepository
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery

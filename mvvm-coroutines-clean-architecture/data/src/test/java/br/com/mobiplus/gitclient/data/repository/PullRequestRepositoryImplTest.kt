@@ -6,7 +6,7 @@ import br.com.mobiplus.gitclient.data.pullRequest.model.PullRequestResponseModel
 import br.com.mobiplus.gitclient.data.pullRequest.model.UserResponseModel
 import br.com.mobiplus.gitclient.data.fake.FakePullRequestResponseModel
 import br.com.mobiplus.gitclient.data.fake.FakeUserResponseModel
-import br.com.mobiplus.gitclient.domain.base.FullResultWrapper
+import br.com.mobiplus.gitclient.domain.base.resultwrapper.FullResultWrapper
 import io.mockk.*
 import io.mockk.impl.annotations.MockK
 import kotlinx.coroutines.runBlocking

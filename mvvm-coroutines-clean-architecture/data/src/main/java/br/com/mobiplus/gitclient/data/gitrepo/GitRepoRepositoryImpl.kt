@@ -1,7 +1,7 @@
 package br.com.mobiplus.gitclient.data.gitrepo
 
 import br.com.mobiplus.gitclient.domain.base.BaseErrorData
-import br.com.mobiplus.gitclient.domain.base.ResultWrapper
+import br.com.mobiplus.gitclient.domain.base.resultwrapper.ResultWrapper
 import br.com.mobiplus.gitclient.domain.model.GitRepoModel
 import br.com.mobiplus.gitclient.domain.repository.GitRepoRepository
 import br.com.mobiplus.gitclient.data.base.SharedPreferencesUtil

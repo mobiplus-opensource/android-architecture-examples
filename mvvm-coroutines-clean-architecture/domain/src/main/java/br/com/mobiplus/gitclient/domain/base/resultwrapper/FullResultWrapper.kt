@@ -1,4 +1,6 @@
-package br.com.mobiplus.gitclient.domain.base
+package br.com.mobiplus.gitclient.domain.base.resultwrapper
+
+import br.com.mobiplus.gitclient.domain.base.ResultCode
 
 class FullResultWrapper<SUCCESS, ERROR>(
     success: SUCCESS? = null,

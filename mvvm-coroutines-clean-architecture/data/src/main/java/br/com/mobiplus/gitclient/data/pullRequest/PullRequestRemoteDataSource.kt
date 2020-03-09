@@ -3,7 +3,7 @@ package br.com.mobiplus.gitclient.data.pullRequest
 import br.com.mobiplus.gitclient.data.base.BaseDataSourceImpl
 import br.com.mobiplus.gitclient.data.pullRequest.model.PullRequestResponseModel
 import br.com.mobiplus.gitclient.domain.base.BaseErrorData
-import br.com.mobiplus.gitclient.domain.base.FullResultWrapper
+import br.com.mobiplus.gitclient.domain.base.resultwrapper.FullResultWrapper
 
 class PullRequestRemoteDataSource(
     private val pullRequestApi: PullRequestApi

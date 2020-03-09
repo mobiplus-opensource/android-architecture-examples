@@ -1,4 +1,4 @@
-package br.com.mobiplus.gitclient.domain.base
+package br.com.mobiplus.gitclient.domain.base.resultwrapper
 
 /**
  * @Descrição: ResultWrapper é uma classe que encapsula objetos de erro e sucesso

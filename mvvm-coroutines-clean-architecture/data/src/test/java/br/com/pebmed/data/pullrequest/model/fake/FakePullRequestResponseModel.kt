@@ -1,7 +1,7 @@
 package br.com.pebmed.data.pullrequest.model.fake
 
-import br.com.pebmed.data.pullRequest.model.PullRequestResponseModel
-import br.com.pebmed.data.pullRequest.model.UserResponseModel
+import br.com.mobiplus.gitclient.data.pullRequest.model.PullRequestResponseModel
+import br.com.mobiplus.gitclient.data.pullRequest.model.UserResponseModel
 import java.util.*
 
 class FakePullRequestResponseModel {

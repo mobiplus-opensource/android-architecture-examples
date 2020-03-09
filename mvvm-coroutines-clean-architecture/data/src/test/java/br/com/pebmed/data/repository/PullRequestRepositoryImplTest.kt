@@ -1,9 +1,9 @@
 package br.com.pebmed.data.repository
 
-import br.com.pebmed.data.pullRequest.PullRequestRemoteDataSource
-import br.com.pebmed.data.pullRequest.PullRequestRepositoryImpl
-import br.com.pebmed.data.pullRequest.model.PullRequestResponseModel
-import br.com.pebmed.data.pullRequest.model.UserResponseModel
+import br.com.mobiplus.gitclient.data.pullRequest.PullRequestRemoteDataSource
+import br.com.mobiplus.gitclient.data.pullRequest.PullRequestRepositoryImpl
+import br.com.mobiplus.gitclient.data.pullRequest.model.PullRequestResponseModel
+import br.com.mobiplus.gitclient.data.pullRequest.model.UserResponseModel
 import br.com.pebmed.data.pullrequest.model.fake.FakePullRequestResponseModel
 import br.com.pebmed.data.pullrequest.model.fake.FakeUserResponseModel
 import br.com.mobiplus.gitclient.domain.base.FullResultWrapper

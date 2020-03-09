@@ -42,7 +42,7 @@ class PullRequestRepositoryImplTest {
         runBlocking {
             PullRequestRepositoryImpl(pullRequestRemoteDataSource).getPullRequests(
                 owner = "",
-                repoName = ""
+                gitRepoName = ""
             )
         }
 

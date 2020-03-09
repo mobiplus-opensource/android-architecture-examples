@@ -18,11 +18,11 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class PullRequestActivity : AppCompatActivity() {
     companion object {
-        fun open(from: Context, owner: String, repoName: String, pullRequestNumber: Long) {
+        fun open(from: Context, owner: String, gitRepoName: String, pullRequestNumber: Long) {
             val bundle = Bundle()
 
             bundle.putString("ownerModel", owner)
-            bundle.putString("repoName", repoName)
+            bundle.putString("gitRepoName", gitRepoName)
             bundle.putLong("pullRequestNumber", pullRequestNumber)
 
             Navigator.goToActivity(from, PullRequestActivity::class.java, bundle)
@@ -32,7 +32,7 @@ class PullRequestActivity : AppCompatActivity() {
     private val viewModel by viewModel<PullRequestViewModel>()
 
     private lateinit var owner: String
-    private lateinit var repoName: String
+    private lateinit var gitRepoName: String
     private var pullRequestNumber: Long = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,13 +40,13 @@ class PullRequestActivity : AppCompatActivity() {
         setContentView(R.layout.activity_pull_request)
 
         owner = intent.extras?.getString("ownerModel") ?: ""
-        repoName = intent.extras?.getString("repoName") ?: ""
+        gitRepoName = intent.extras?.getString("gitRepoName") ?: ""
         pullRequestNumber = intent.extras?.getLong("pullRequestNumber") ?: -1
 
         this.initToolbar()
         this.initObservers()
 
-        viewModel.getPullRequest(owner, repoName, pullRequestNumber)
+        viewModel.getPullRequest(owner, gitRepoName, pullRequestNumber)
     }
 
     override fun onSupportNavigateUp(): Boolean {

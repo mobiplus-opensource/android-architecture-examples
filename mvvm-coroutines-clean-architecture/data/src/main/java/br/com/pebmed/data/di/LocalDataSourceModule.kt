@@ -3,14 +3,14 @@ package br.com.pebmed.data.di
 import androidx.room.Room
 import br.com.pebmed.data.base.WBDatabase
 import br.com.pebmed.data.base.SharedPreferencesUtil
-import br.com.pebmed.data.repo.local.RepoLocalDataSource
+import br.com.pebmed.data.gitrepo.local.GitRepoLocalDataSource
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 
 val localDataSourceModule = module {
     single { SharedPreferencesUtil(androidContext()) }
     single { Room.databaseBuilder(androidContext(), WBDatabase::class.java, "basearch.db").build() }
-    single { get<WBDatabase>().repoDao() }
+    single { get<WBDatabase>().gitRepoDao() }
 
-    factory { RepoLocalDataSource(repoDao = get()) }
+    factory { GitRepoLocalDataSource(gitRepoDao = get())}
 }

@@ -2,7 +2,7 @@ package br.com.pebmed.domain.usecases
 
 import br.com.pebmed.domain.FakeGitRepoModel
 import br.com.pebmed.domain.base.ResultWrapper
-import br.com.pebmed.domain.repository.RepoRepository
+import br.com.pebmed.domain.repository.GitRepoRepository
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.coVerify
@@ -13,9 +13,9 @@ import org.junit.Before
 import org.junit.Test
 
 
-class GetReposUseCaseTest {
+class GetGitRepoListUseCaseTest {
     @MockK(relaxUnitFun = true)
-    private lateinit var repoRepository: RepoRepository
+    private lateinit var gitRepoRepository: GitRepoRepository
 
     private val fakePage = 1
     private val fakeLanguage = "java"
@@ -28,7 +28,7 @@ class GetReposUseCaseTest {
     @Test
     fun `SHOULD save last sync date WHEN force sync param is true`() = runBlocking {
         coEvery {
-            repoRepository.getAllRepos(
+            gitRepoRepository.getGitRepoList(
                 fromRemote = true,
                 page = fakePage,
                 language = fakeLanguage
@@ -37,17 +37,17 @@ class GetReposUseCaseTest {
             success = FakeGitRepoModel.mock(1)
         )
 
-        GetReposUseCase(repoRepository).runAsync(GetReposUseCase.Params(true))
+        GetGitRepoListUseCase(gitRepoRepository).runAsync(GetGitRepoListUseCase.Params(true))
 
         coVerify {
-            repoRepository.getAllRepos(
+            gitRepoRepository.getGitRepoList(
                 fromRemote = true,
                 page = fakePage,
                 language = fakeLanguage
             )
-            repoRepository.saveLastSyncDate(any())
+            gitRepoRepository.saveLastSyncDate(any())
         }
 
-        confirmVerified(repoRepository)
+        confirmVerified(gitRepoRepository)
     }
 }

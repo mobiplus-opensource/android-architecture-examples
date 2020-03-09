@@ -14,14 +14,14 @@ class GetPullRequestUseCase(
     override suspend fun runAsync(params: Params): ResultWrapper<PullRequestModel, BaseErrorData<BaseErrorStatus>> {
         return pullRequestRepository.getPullRequest(
             owner = params.owner,
-            repoName = params.repoName,
+            gitRepoName = params.gitRepoName,
             pullRequestNumber = params.pullRequestNumber
         ).transformError { BaseErrorData(errorBody = BaseErrorStatus.DEFAULT_ERROR) }
     }
 
     data class Params(
         val owner: String,
-        val repoName: String,
+        val gitRepoName: String,
         val pullRequestNumber: Long
     )
 }

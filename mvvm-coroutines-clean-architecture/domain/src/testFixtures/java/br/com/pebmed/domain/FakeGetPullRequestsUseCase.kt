@@ -9,7 +9,7 @@ class FakeGetPullRequestsUseCase {
         companion object {
             fun mock() = GetPullRequestsUseCase.Params(
                 owner = "OwnerModel",
-                repoName = "RepoName"
+                gitRepoName = "RepoName"
             )
         }
     }

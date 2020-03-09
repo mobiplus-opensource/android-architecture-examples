@@ -20,11 +20,11 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class PullRequestListActivity : AppCompatActivity() {
     companion object {
-        fun open(from: Context, owner: String, repoName: String) {
+        fun open(from: Context, owner: String, gitRepoName: String) {
             val bundle = Bundle()
 
             bundle.putString("ownerModel", owner)
-            bundle.putString("repoName", repoName)
+            bundle.putString("gitRepoName", gitRepoName)
 
             Navigator.goToActivity(from, PullRequestListActivity::class.java, bundle)
         }
@@ -34,14 +34,14 @@ class PullRequestListActivity : AppCompatActivity() {
     private lateinit var adapter: PullRequestListAdapter
 
     private lateinit var owner: String
-    private lateinit var repoName: String
+    private lateinit var gitRepoName: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pull_request_list)
 
         owner = intent.extras?.getString("ownerModel") ?: ""
-        repoName = intent.extras?.getString("repoName") ?: ""
+        gitRepoName = intent.extras?.getString("gitRepoName") ?: ""
 
         this.initToolbar()
         this.initRecyclerView()
@@ -50,7 +50,7 @@ class PullRequestListActivity : AppCompatActivity() {
 
         viewModel.loadPullRequestList(
             owner = owner,
-            repoName = repoName
+            gitRepoName = gitRepoName
         )
     }
 
@@ -61,7 +61,7 @@ class PullRequestListActivity : AppCompatActivity() {
 
     private fun initToolbar() {
         setSupportActionBar(toolbar)
-        supportActionBar?.title = "$repoName Pull Requests"
+        supportActionBar?.title = "$gitRepoName Pull Requests"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
     }
@@ -97,7 +97,7 @@ class PullRequestListActivity : AppCompatActivity() {
         buttonPullRequestsTryAgain.setOnClickListener {
             viewModel.loadPullRequestList(
                 owner = "",
-                repoName = ""
+                gitRepoName = ""
             )
         }
     }
@@ -111,7 +111,7 @@ class PullRequestListActivity : AppCompatActivity() {
                     PullRequestActivity.open(
                         this@PullRequestListActivity,
                         owner,
-                        repoName,
+                        gitRepoName,
                         pullRequestNumber
                     )
                 }

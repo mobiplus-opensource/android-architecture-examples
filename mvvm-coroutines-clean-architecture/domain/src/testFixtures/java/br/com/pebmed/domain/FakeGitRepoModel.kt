@@ -1,12 +1,12 @@
 package br.com.pebmed.domain
 
-import br.com.pebmed.domain.model.RepoModel
+import br.com.pebmed.domain.model.GitRepoModel
 
 class FakeGitRepoModel {
     
     companion object {
-        fun mock(itemsOnList: Int): List<RepoModel> {
-            val list = mutableListOf<RepoModel>()
+        fun mock(itemsOnList: Int): List<GitRepoModel> {
+            val list = mutableListOf<GitRepoModel>()
 
             for (index in 0 .. itemsOnList) {
                 list.add(
@@ -17,7 +17,7 @@ class FakeGitRepoModel {
             return list
         }
 
-        fun mock() = RepoModel(
+        fun mock() = GitRepoModel(
             id = 1,
             ownerModel = FakeOwnerModel.mock()
         )

@@ -1,17 +1,20 @@
 package br.com.pebmed.data.di
 
+import br.com.pebmed.data.base.SharedPreferencesUtil
 import br.com.pebmed.data.pullRequest.PullRequestRepositoryImpl
-import br.com.pebmed.data.repo.RepoRepositoryImpl
+import br.com.pebmed.data.gitrepo.GitRepoRepositoryImpl
+import br.com.pebmed.data.gitrepo.local.GitRepoLocalDataSource
+import br.com.pebmed.data.gitrepo.remote.GitRepoRemoteDataSource
 import br.com.pebmed.domain.repository.PullRequestRepository
-import br.com.pebmed.domain.repository.RepoRepository
+import br.com.pebmed.domain.repository.GitRepoRepository
 import org.koin.dsl.module
 
 val repositoryModule = module {
-    factory<RepoRepository> {
-        RepoRepositoryImpl(
-            remoteRepository = get(),
-            localRepository = get(),
-            sharedPreferencesUtil = get()
+    factory<GitRepoRepository> {
+        GitRepoRepositoryImpl(
+            get() as GitRepoRemoteDataSource,
+            get() as GitRepoLocalDataSource,
+            get() as SharedPreferencesUtil
         )
     }
 

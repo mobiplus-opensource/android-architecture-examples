@@ -58,7 +58,7 @@ class PullRequestActivityTest {
 
         val intent = Intent()
         intent.putExtra("owner", "TEST_OWNER")
-        intent.putExtra("repoName", "TEST_REPO")
+        intent.putExtra("gitRepoName", "TEST_REPO")
         intent.putExtra("pullRequestNumber", 1000L)
 
         rule.launchActivity(intent)

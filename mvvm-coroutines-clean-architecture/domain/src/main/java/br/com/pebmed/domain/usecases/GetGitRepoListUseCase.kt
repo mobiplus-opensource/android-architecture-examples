@@ -4,11 +4,11 @@ import br.com.pebmed.domain.base.BaseErrorData
 import br.com.pebmed.domain.base.BaseErrorStatus
 import br.com.pebmed.domain.base.ResultWrapper
 import br.com.pebmed.domain.base.usecase.BaseAsyncUseCase
-import br.com.pebmed.domain.model.RepoModel
+import br.com.pebmed.domain.model.GitRepoModel
 import br.com.pebmed.domain.extensions.getCurrentDateTime
 import br.com.pebmed.domain.extensions.toCacheFormat
-import br.com.pebmed.domain.repository.RepoRepository
-import br.com.pebmed.domain.usecases.GetReposUseCase.Params
+import br.com.pebmed.domain.repository.GitRepoRepository
+import br.com.pebmed.domain.usecases.GetGitRepoListUseCase.Params
 
 /**
  * @Regra de negócio:
@@ -16,19 +16,19 @@ import br.com.pebmed.domain.usecases.GetReposUseCase.Params
  * 2) É necessário persistir a ultima data de sincronização caso o resultado seja sucesso e o
  * parâmetro de sincronização esteja true
  */
-class GetReposUseCase(
-    private val repoRepository: RepoRepository
-) : BaseAsyncUseCase<ResultWrapper<List<RepoModel>, BaseErrorData<BaseErrorStatus>>, Params>() {
+class GetGitRepoListUseCase(
+    private val gitRepoRepository: GitRepoRepository
+) : BaseAsyncUseCase<ResultWrapper<List<GitRepoModel>, BaseErrorData<BaseErrorStatus>>, Params>() {
 
-    override suspend fun runAsync(params: Params): ResultWrapper<List<RepoModel>, BaseErrorData<BaseErrorStatus>> {
-        val result = repoRepository.getAllRepos(
+    override suspend fun runAsync(params: Params): ResultWrapper<List<GitRepoModel>, BaseErrorData<BaseErrorStatus>> {
+        val result = gitRepoRepository.getGitRepoList(
             fromRemote = params.forceSync,
             page = 1,
             language = "java"
         )
 
         if (result.success != null && params.forceSync) {
-            repoRepository.saveLastSyncDate(getCurrentDateTime().toCacheFormat())
+            gitRepoRepository.saveLastSyncDate(getCurrentDateTime().toCacheFormat())
         }
 
         return result.transformError { BaseErrorData(errorBody = BaseErrorStatus.DEFAULT_ERROR) }

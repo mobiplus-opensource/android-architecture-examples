@@ -1,4 +1,4 @@
-package br.com.pebmed.data.repo.remote.model
+package br.com.pebmed.data.gitrepo.remote.model
 
 import br.com.pebmed.domain.model.OwnerModel
 import com.google.gson.annotations.SerializedName

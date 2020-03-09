@@ -10,20 +10,20 @@ class PullRequestRemoteDataSource(
 ) : BaseDataSourceImpl() {
     suspend fun getPullRequests(
         owner: String,
-        repoName: String
+        gitRepoName: String
     ): FullResultWrapper<List<PullRequestResponseModel>, BaseErrorData<Unit>> {
-        return safeApiCall { pullRequestApi.getPullRequests(owner, repoName) }
+        return safeApiCall { pullRequestApi.getPullRequests(owner, gitRepoName) }
     }
 
     suspend fun getPullRequest(
         owner: String,
-        repoName: String,
+        gitRepoName: String,
         pullRequestNumber: Long
     ): FullResultWrapper<PullRequestResponseModel, BaseErrorData<Unit>> {
         return safeApiCall {
             pullRequestApi.getPullRequest(
                 owner,
-                repoName,
+                gitRepoName,
                 pullRequestNumber
             )
         }

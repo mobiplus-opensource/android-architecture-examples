@@ -7,12 +7,12 @@ import br.com.pebmed.domain.model.PullRequestModel
 interface PullRequestRepository {
     suspend fun getPullRequests(
         owner: String,
-        repoName: String
+        gitRepoName: String
     ): ResultWrapper<List<PullRequestModel>, BaseErrorData<Unit>>
 
     suspend fun getPullRequest(
         owner: String,
-        repoName: String,
+        gitRepoName: String,
         pullRequestNumber: Long
     ): ResultWrapper<PullRequestModel, BaseErrorData<Unit>>
 }

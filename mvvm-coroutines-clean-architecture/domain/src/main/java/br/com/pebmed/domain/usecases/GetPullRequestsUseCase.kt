@@ -15,12 +15,12 @@ class GetPullRequestsUseCase(
     override suspend fun runAsync(params: Params): ResultWrapper<List<PullRequestModel>, BaseErrorData<BaseErrorStatus>> {
         return pullRequestRepository.getPullRequests(
             owner = params.owner,
-            repoName = params.repoName
+            gitRepoName = params.gitRepoName
         ).transformError { BaseErrorData(errorBody = BaseErrorStatus.DEFAULT_ERROR) }
     }
 
     data class Params(
         val owner: String,
-        val repoName: String
+        val gitRepoName: String
     )
 }

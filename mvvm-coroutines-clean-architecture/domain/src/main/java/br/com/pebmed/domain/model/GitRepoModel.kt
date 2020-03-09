@@ -1,6 +1,6 @@
 package br.com.pebmed.domain.model
 
-data class RepoModel(
+data class GitRepoModel(
     val description: String? = null,
     val disabled: Boolean? = null,
     val fork: Boolean? = null,

@@ -21,11 +21,11 @@ class PullRequestListViewModel(
     val pullRequestListState: LiveData<ViewState<List<PullRequestModel>, BaseErrorData<BaseErrorStatus>>>
         get() = _pullRequestListState
 
-    fun loadPullRequestList(owner: String, repoName: String) {
+    fun loadPullRequestList(owner: String, gitRepoName: String) {
         _pullRequestListState.postValue(ViewState.Loading())
 
         viewModelScope.launch(Dispatchers.IO) {
-            val params = GetPullRequestsUseCase.Params(owner, repoName)
+            val params = GetPullRequestsUseCase.Params(owner, gitRepoName)
             val resultWrapper = getPullRequestsUseCase.runAsync(params)
 
             val viewState = loadViewState(resultWrapper)

@@ -19,13 +19,13 @@ class PullRequestViewModel(private val getPullRequestUseCase: GetPullRequestUseC
     val pullRequestState: LiveData<ViewState<PullRequestModel, BaseErrorData<BaseErrorStatus>>>
         get() = _pullRequestState
 
-    fun getPullRequest(owner: String, repoName: String, pullRequestNumber: Long) {
+    fun getPullRequest(owner: String, gitRepoName: String, pullRequestNumber: Long) {
         _pullRequestState.postValue(ViewState.Loading())
 
         viewModelScope.launch(Dispatchers.IO) {
             val params = GetPullRequestUseCase.Params(
                 owner = owner,
-                repoName = repoName,
+                gitRepoName = gitRepoName,
                 pullRequestNumber = pullRequestNumber
             )
             val resultWrapper = getPullRequestUseCase.runAsync(params)

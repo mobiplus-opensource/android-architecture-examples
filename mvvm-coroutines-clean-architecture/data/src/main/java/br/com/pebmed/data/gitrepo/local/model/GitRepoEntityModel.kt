@@ -1,14 +1,14 @@
-package br.com.pebmed.data.repo.local.model
+package br.com.pebmed.data.gitrepo.local.model
 
 import androidx.annotation.NonNull
 import androidx.room.ColumnInfo
 import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import br.com.pebmed.domain.model.RepoModel
+import br.com.pebmed.domain.model.GitRepoModel
 
-@Entity(tableName = "RepoModel")
-data class RepoEntityModel(
+@Entity(tableName = "GitRepoModel")
+data class GitRepoEntityModel(
     @NonNull
     @PrimaryKey(autoGenerate = false)
     val id: Int,
@@ -37,7 +37,7 @@ data class RepoEntityModel(
     val url: String?,
     val watchers: Int?
 ) {
-    fun mapTo() = RepoModel(
+    fun mapTo() = GitRepoModel(
         id = this.id,
         description = this.description,
         disabled = this.disabled,

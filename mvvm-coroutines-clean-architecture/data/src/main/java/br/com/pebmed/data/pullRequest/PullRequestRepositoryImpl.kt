@@ -11,20 +11,20 @@ class PullRequestRepositoryImpl(
 ) : PullRequestRepository {
     override suspend fun getPullRequests(
         owner: String,
-        repoName: String
+        gitRepoName: String
     ): FullResultWrapper<List<PullRequestModel>, BaseErrorData<Unit>> {
-        val listPullRequests = pullRequestRemoteDataSource.getPullRequests(owner, repoName)
+        val listPullRequests = pullRequestRemoteDataSource.getPullRequests(owner, gitRepoName)
 
         return listPullRequests.transformSuccess(handleGetPullRequestsSuccess())
     }
 
     override suspend fun getPullRequest(
         owner: String,
-        repoName: String,
+        gitRepoName: String,
         pullRequestNumber: Long
     ): FullResultWrapper<PullRequestModel, BaseErrorData<Unit>> {
         val pullRequest =
-            pullRequestRemoteDataSource.getPullRequest(owner, repoName, pullRequestNumber)
+            pullRequestRemoteDataSource.getPullRequest(owner, gitRepoName, pullRequestNumber)
 
         return pullRequest.transformSuccess { it.mapTo() }
     }

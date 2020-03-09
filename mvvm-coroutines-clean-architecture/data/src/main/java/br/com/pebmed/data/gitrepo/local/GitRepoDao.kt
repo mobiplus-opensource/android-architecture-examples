@@ -1,17 +1,17 @@
-package br.com.pebmed.data.repo.local
+package br.com.pebmed.data.gitrepo.local
 
 import androidx.room.*
-import br.com.pebmed.data.repo.local.model.RepoEntityModel
+import br.com.pebmed.data.gitrepo.local.model.GitRepoEntityModel
 
 @Dao
-interface RepoDao {
-    @Query("SELECT * FROM RepoModel")
-    suspend fun getAll(): List<RepoEntityModel>
+interface GitRepoDao {
+    @Query("SELECT * FROM GitRepoModel")
+    suspend fun getAll(): List<GitRepoEntityModel>
 
-    @Query("SELECT * FROM RepoModel WHERE id = :id")
-    suspend fun getFromId(id: Int): RepoEntityModel?
+    @Query("SELECT * FROM GitRepoModel WHERE id = :id")
+    suspend fun getFromId(id: Int): GitRepoEntityModel?
 
-    @Query("DELETE FROM RepoModel")
+    @Query("DELETE FROM GitRepoModel")
     suspend fun deleteAll()
 
     /**
@@ -21,7 +21,7 @@ interface RepoDao {
      * @return The SQLite row id
      */
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insert(obj: RepoEntityModel): Long
+    suspend fun insert(obj: GitRepoEntityModel): Long
 
     /**
      * Insert an array of objects in the database.
@@ -30,7 +30,7 @@ interface RepoDao {
      * @return The SQLite row ids
      */
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insert(obj: List<RepoEntityModel>): List<Long>
+    suspend fun insert(obj: List<GitRepoEntityModel>): List<Long>
 
     /**
      * Update an object from the database.
@@ -38,7 +38,7 @@ interface RepoDao {
      * @param obj the object to be updated
      */
     @Update
-    suspend fun update(obj: RepoEntityModel)
+    suspend fun update(obj: GitRepoEntityModel)
 
     /**
      * Update an array of objects from the database.
@@ -46,7 +46,7 @@ interface RepoDao {
      * @param obj the object to be updated
      */
     @Update
-    suspend fun update(obj: List<RepoEntityModel>)
+    suspend fun update(obj: List<GitRepoEntityModel>)
 
     /**
      * Delete an object from the database
@@ -54,10 +54,10 @@ interface RepoDao {
      * @param obj the object to be deleted
      */
     @Delete
-    suspend fun delete(obj: RepoEntityModel)
+    suspend fun delete(obj: GitRepoEntityModel)
 
     @Transaction
-    suspend fun upsert(obj: RepoEntityModel) {
+    suspend fun upsert(obj: GitRepoEntityModel) {
         val id = insert(obj)
         if (id == -1L) {
             update(obj)
@@ -65,9 +65,9 @@ interface RepoDao {
     }
 
     @Transaction
-    suspend fun upsert(objList: List<RepoEntityModel>) {
+    suspend fun upsert(objList: List<GitRepoEntityModel>) {
         val insertResult = insert(objList)
-        val updateList = mutableListOf<RepoEntityModel>()
+        val updateList = mutableListOf<GitRepoEntityModel>()
 
         for (i in insertResult.indices) {
             if (insertResult[i] == -1L) {

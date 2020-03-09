@@ -6,32 +6,32 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import br.com.pebmed.domain.base.BaseErrorData
 import br.com.pebmed.domain.base.BaseErrorStatus
-import br.com.pebmed.domain.model.RepoModel
-import br.com.pebmed.domain.usecases.GetReposUseCase
+import br.com.pebmed.domain.model.GitRepoModel
+import br.com.pebmed.domain.usecases.GetGitRepoListUseCase
 import com.example.basearch.presentation.extensions.loadViewState
 import com.example.basearch.presentation.ui.base.ViewState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class MainViewModel(private val getReposUseCase: GetReposUseCase) : ViewModel() {
-    private val _reposState =
-        MutableLiveData<ViewState<List<RepoModel>, BaseErrorData<BaseErrorStatus>>>()
-    val reposState: LiveData<ViewState<List<RepoModel>, BaseErrorData<BaseErrorStatus>>>
-        get() = _reposState
+class MainViewModel(private val getGitRepoListUseCase: GetGitRepoListUseCase) : ViewModel() {
+    private val _gitRepoListState =
+        MutableLiveData<ViewState<List<GitRepoModel>, BaseErrorData<BaseErrorStatus>>>()
+    val gitRepoListState: LiveData<ViewState<List<GitRepoModel>, BaseErrorData<BaseErrorStatus>>>
+        get() = _gitRepoListState
 
     init {
-        loadRepos()
+        loadGitRepoList()
     }
 
-    fun loadRepos() {
-        _reposState.postValue(ViewState.Loading())
+    fun loadGitRepoList() {
+        _gitRepoListState.postValue(ViewState.Loading())
 
         viewModelScope.launch(Dispatchers.IO) {
-            val params = GetReposUseCase.Params(true)
-            val resultWrapper = getReposUseCase.runAsync(params)
+            val params = GetGitRepoListUseCase.Params(true)
+            val resultWrapper = getGitRepoListUseCase.runAsync(params)
 
             val viewState = loadViewState(resultWrapper)
-            _reposState.postValue(viewState)
+            _gitRepoListState.postValue(viewState)
         }
     }
 }

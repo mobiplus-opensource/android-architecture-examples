@@ -1,9 +1,9 @@
-package br.com.pebmed.data.repo.remote.model
+package br.com.pebmed.data.gitrepo.remote.model
 
-import br.com.pebmed.domain.model.RepoModel
+import br.com.pebmed.domain.model.GitRepoModel
 import com.google.gson.annotations.SerializedName
 
-data class RepoResponse(
+data class GitRepoResponse(
     @SerializedName("private") val isPrivate: Boolean?,
     @SerializedName("archive_url") val archiveUrl: String?,
     @SerializedName("archived") val archived: Boolean?,
@@ -77,7 +77,7 @@ data class RepoResponse(
     @SerializedName("watchers") val watchers: Int?,
     @SerializedName("watchers_count") val watchersCount: Int?
 ) {
-    fun mapTo() = RepoModel(
+    fun mapTo() = GitRepoModel(
         id = this.id,
         description = this.description,
         disabled = this.disabled,

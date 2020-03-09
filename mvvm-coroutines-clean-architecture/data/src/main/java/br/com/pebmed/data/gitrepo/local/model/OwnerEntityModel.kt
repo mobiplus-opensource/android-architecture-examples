@@ -1,4 +1,4 @@
-package br.com.pebmed.data.repo.local.model
+package br.com.pebmed.data.gitrepo.local.model
 
 import androidx.annotation.NonNull
 import androidx.room.ColumnInfo

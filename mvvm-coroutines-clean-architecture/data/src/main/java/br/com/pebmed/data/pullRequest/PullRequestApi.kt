@@ -6,16 +6,16 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface PullRequestApi {
-    @GET("/repos/{ownerModel}/{repoName}/pulls?state=all")
+    @GET("/repos/{ownerModel}/{gitRepoName}/pulls?state=all")
     suspend fun getPullRequests(
         @Path("ownerModel") owner: String,
-        @Path("repoName") repoName: String
+        @Path("gitRepoName") gitRepoName: String
     ): Response<List<PullRequestResponseModel>>
 
-    @GET("/repos/{ownerModel}/{repoName}/pulls/{pullRequestNumber}")
+    @GET("/repos/{ownerModel}/{gitRepoName}/pulls/{pullRequestNumber}")
     suspend fun getPullRequest(
         @Path("ownerModel") owner: String,
-        @Path("repoName") repoName: String,
+        @Path("gitRepoName") gitRepoName: String,
         @Path("pullRequestNumber") pullRequestNumber: Long
     ): Response<PullRequestResponseModel>
 }

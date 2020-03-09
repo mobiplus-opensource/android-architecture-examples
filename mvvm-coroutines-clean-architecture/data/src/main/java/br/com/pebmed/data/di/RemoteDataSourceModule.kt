@@ -1,13 +1,14 @@
 package br.com.pebmed.data.di
 
+import br.com.pebmed.data.gitrepo.remote.GitRepoApi
 import br.com.pebmed.data.pullRequest.PullRequestRemoteDataSource
-import br.com.pebmed.data.repo.remote.RepoRemoteDataSource
+import br.com.pebmed.data.gitrepo.remote.GitRepoRemoteDataSource
 import org.koin.dsl.module
 
 val remoteDataSourceModule = module {
     factory {
-        RepoRemoteDataSource(
-            repoApi = get()
+        GitRepoRemoteDataSource(
+            get() as GitRepoApi
         )
     }
 

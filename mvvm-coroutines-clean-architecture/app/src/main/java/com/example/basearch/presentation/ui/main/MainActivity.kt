@@ -4,21 +4,21 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import br.com.pebmed.domain.model.RepoModel
+import br.com.pebmed.domain.model.GitRepoModel
 import com.example.basearch.R
 import com.example.basearch.presentation.extensions.setGone
 import com.example.basearch.presentation.extensions.setVisible
 import com.example.basearch.presentation.extensions.showToast
 import com.example.basearch.presentation.ui.base.ViewState
-import com.example.basearch.presentation.ui.main.adapter.ReposAdapter
-import com.example.basearch.presentation.ui.main.adapter.ReposAdapterListener
+import com.example.basearch.presentation.ui.main.adapter.GitRepoListAdapter
+import com.example.basearch.presentation.ui.main.adapter.GitRepoAdapterListener
 import com.example.basearch.presentation.ui.pullRequest.list.PullRequestListActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
     private val viewModel by viewModel<MainViewModel>()
-    private lateinit var reposAdapter: ReposAdapter
+    private lateinit var gitRepoAdapter: GitRepoListAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,21 +30,21 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initObservers() {
-        viewModel.reposState.observe(this, Observer {
+        viewModel.gitRepoListState.observe(this, Observer {
             when (it) {
                 is ViewState.Loading -> {
                     showLoadingView()
                 }
 
                 is ViewState.Success -> {
-                    showReposList(it.data)
+                    showGitRepoList(it.data)
                 }
 
                 is ViewState.Empty -> {
                     val message = getString(R.string.empty_list)
 
                     when {
-                        reposAdapter.isEmpty() -> showErrorView(message)
+                        gitRepoAdapter.isEmpty() -> showErrorView(message)
                         else -> showToast(message)
                     }
                 }
@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity() {
                     val baseErrorData = it.error
                     val message = baseErrorData?.errorMessage ?: getString(R.string.error_message)
 
-                    if (reposAdapter.isEmpty()) {
+                    if (gitRepoAdapter.isEmpty()) {
                         showErrorView(message)
                     } else {
                         showToast(message)
@@ -65,20 +65,20 @@ class MainActivity : AppCompatActivity() {
 
     private fun initListeners() {
         buttonReposTryAgain.setOnClickListener {
-            viewModel.loadRepos()
+            viewModel.loadGitRepoList()
         }
     }
 
     private fun initReposRecyclerView() {
-        reposAdapter = ReposAdapter(
+        gitRepoAdapter = GitRepoListAdapter(
             this,
             mutableListOf(),
-            object : ReposAdapterListener {
-                override fun onItemClick(repo: RepoModel) {
+            object : GitRepoAdapterListener {
+                override fun onItemClick(gitRepo: GitRepoModel) {
                     PullRequestListActivity.open(
                         this@MainActivity,
-                        repo.ownerModel.login!!,
-                        repo.name!!
+                        gitRepo.ownerModel.login!!,
+                        gitRepo.name!!
                     )
                 }
 
@@ -86,7 +86,7 @@ class MainActivity : AppCompatActivity() {
         )
 
         recyclerViewRepos.layoutManager = LinearLayoutManager(this)
-        recyclerViewRepos.adapter = reposAdapter
+        recyclerViewRepos.adapter = gitRepoAdapter
     }
 
     //region ViewStates
@@ -114,11 +114,11 @@ class MainActivity : AppCompatActivity() {
         textReposError.text = ""
     }
 
-    private fun showReposList(repos: List<RepoModel>) {
+    private fun showGitRepoList(gitRepos: List<GitRepoModel>) {
         hideLoadingView()
         hideErrorView()
 
-        reposAdapter.addItems(repos)
+        gitRepoAdapter.addItems(gitRepos)
 
         recyclerViewRepos.setVisible()
     }

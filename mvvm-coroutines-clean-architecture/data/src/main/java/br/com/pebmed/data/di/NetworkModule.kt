@@ -2,7 +2,7 @@ package br.com.pebmed.data.di
 
 import br.com.pebmed.data.R
 import br.com.pebmed.data.pullRequest.PullRequestApi
-import br.com.pebmed.data.repo.remote.RepoApi
+import br.com.pebmed.data.gitrepo.remote.GitRepoApi
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidContext
@@ -44,7 +44,7 @@ val networkModule = module {
         )
     }
 
-    factory<RepoApi> {
+    factory<GitRepoApi> {
         provideApi(retrofit = get(named(githubApiScopeName)))
     }
 

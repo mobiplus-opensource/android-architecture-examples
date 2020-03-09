@@ -1,11 +1,8 @@
 package br.com.mobiplus.gitclient.presentation.ui.base
 
-/**
- * Representa os possíveis estados de uma tela
- */
 sealed class ViewState<SUCCESS, ERROR> {
     class Success<SUCCESS, ERROR>(
-        val data: SUCCESS
+        val success: SUCCESS
     ) : ViewState<SUCCESS, ERROR>()
 
     class Error<SUCCESS, ERROR>(

@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 is ViewState.Success -> {
-                    showGitRepoList(it.data)
+                    showGitRepoList(it.success)
                 }
 
                 is ViewState.Empty -> {

@@ -69,7 +69,7 @@ class PullRequestActivity : AppCompatActivity() {
                 }
 
                 is ViewState.Success -> {
-                    showContent(it.data)
+                    showContent(it.success)
                 }
 
                 is ViewState.Error -> {

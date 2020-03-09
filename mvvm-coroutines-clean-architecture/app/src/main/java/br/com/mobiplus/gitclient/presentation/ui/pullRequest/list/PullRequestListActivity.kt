@@ -74,7 +74,7 @@ class PullRequestListActivity : AppCompatActivity() {
                 }
 
                 is ViewState.Success -> {
-                    showContent(it.data)
+                    showContent(it.success)
                 }
 
                 is ViewState.Empty -> {

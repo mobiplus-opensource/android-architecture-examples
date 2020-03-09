@@ -77,7 +77,7 @@ class PullRequestListViewModelTest {
             }
             .assertValue {
                 if (it is ViewState.Success) {
-                    it.data[0].htmlUrl == resultWrapper.success?.get(0)?.htmlUrl
+                    it.success[0].htmlUrl == resultWrapper.success?.get(0)?.htmlUrl
                 } else {
                     false
                 }

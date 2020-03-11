@@ -12,9 +12,7 @@ import org.koin.dsl.module
 val repositoryModule = module {
     factory<GitRepoRepository> {
         GitRepoRepositoryImpl(
-            get() as GitRepoRemoteDataSource,
-            get() as GitRepoLocalDataSource,
-            get() as SharedPreferencesUtil
+            get() as GitRepoRemoteDataSource
         )
     }
 

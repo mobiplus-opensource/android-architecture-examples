@@ -39,7 +39,7 @@ class ListPullRequestsUseCaseTest {
     @Test
     fun `SHOULD return the correct success object`() = runBlocking {
         coEvery {
-            pullRequestRepository.getPullRequests(any(), any())
+            pullRequestRepository.getPullRequestList(any(), any())
         } returns FullResultWrapper(
             success = listOf(pullRequest)
         )
@@ -53,7 +53,7 @@ class ListPullRequestsUseCaseTest {
     @Test
     fun `SHOULD call correct dependency function WHEN run`() = runBlocking {
         coEvery {
-            pullRequestRepository.getPullRequests(any(), any())
+            pullRequestRepository.getPullRequestList(any(), any())
         } returns FullResultWrapper(
             success = listOf(pullRequest)
         )
@@ -61,7 +61,7 @@ class ListPullRequestsUseCaseTest {
         GetPullRequestsUseCase(pullRequestRepository).runAsync(params)
 
         coVerify {
-            pullRequestRepository.getPullRequests(any(), any())
+            pullRequestRepository.getPullRequestList(any(), any())
         }
 
         confirmVerified(pullRequestRepository)

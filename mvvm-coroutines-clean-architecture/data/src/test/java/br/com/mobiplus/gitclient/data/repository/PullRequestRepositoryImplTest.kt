@@ -34,13 +34,13 @@ class PullRequestRepositoryImplTest {
     fun listPullRequests() {
 
         coEvery {
-            pullRequestRemoteDataSource.getPullRequests(any(), any())
+            pullRequestRemoteDataSource.getPullRequestList(any(), any())
         } returns FullResultWrapper(
             success = listOf(pullRequestModel)
         )
 
         runBlocking {
-            PullRequestRepositoryImpl(pullRequestRemoteDataSource).getPullRequests(
+            PullRequestRepositoryImpl(pullRequestRemoteDataSource).getPullRequestList(
                 owner = "",
                 gitRepoName = ""
             )
@@ -48,7 +48,7 @@ class PullRequestRepositoryImplTest {
 
 
         coVerify {
-            pullRequestRemoteDataSource.getPullRequests(any(), any())
+            pullRequestRemoteDataSource.getPullRequestList(any(), any())
         }
 
         confirmVerified(pullRequestRemoteDataSource)
@@ -58,7 +58,7 @@ class PullRequestRepositoryImplTest {
     fun `SHOULD call functions in the correct order`() {
 
         coEvery {
-            pullRequestRemoteDataSource.getPullRequests(any(), any())
+            pullRequestRemoteDataSource.getPullRequestList(any(), any())
         } returns FullResultWrapper(
             success = listOf(pullRequestModel)
         )
@@ -69,17 +69,17 @@ class PullRequestRepositoryImplTest {
                     pullRequestRemoteDataSource
                 ), recordPrivateCalls = true)
         runBlocking {
-            pullRequestRepositoryImpl.getPullRequests("", "")
+            pullRequestRepositoryImpl.getPullRequestList("", "")
         }
 
         coVerify {
-            pullRequestRepositoryImpl.getPullRequests(any(), any())
+            pullRequestRepositoryImpl.getPullRequestList(any(), any())
             pullRequestRepositoryImpl["handleGetPullRequestsSuccess"]()
             //pullRequestRepositoryImpl["handleListPullRequestsError"]()
         }
 
         coVerifySequence {
-            pullRequestRepositoryImpl.getPullRequests(any(), any())
+            pullRequestRepositoryImpl.getPullRequestList(any(), any())
             pullRequestRepositoryImpl["handleGetPullRequestsSuccess"]()
             //pullRequestRepositoryImpl["handleListPullRequestsError"]()
         }

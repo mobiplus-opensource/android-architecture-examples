@@ -29,7 +29,6 @@ class GetGitRepoListUseCaseTest {
     fun `SHOULD save last sync date WHEN force sync param is true`() = runBlocking {
         coEvery {
             gitRepoRepository.getGitRepoList(
-                fromRemote = true,
                 page = fakePage,
                 language = fakeLanguage
             )
@@ -37,15 +36,13 @@ class GetGitRepoListUseCaseTest {
             success = FakeGitRepoModel.mock(1)
         )
 
-        GetGitRepoListUseCase(gitRepoRepository).runAsync(GetGitRepoListUseCase.Params(true))
+        GetGitRepoListUseCase(gitRepoRepository).runAsync(GetGitRepoListUseCase.Params())
 
         coVerify {
             gitRepoRepository.getGitRepoList(
-                fromRemote = true,
                 page = fakePage,
                 language = fakeLanguage
             )
-            gitRepoRepository.saveLastSyncDate(any())
         }
 
         confirmVerified(gitRepoRepository)

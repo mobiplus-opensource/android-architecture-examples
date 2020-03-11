@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import br.com.mobiplus.gitclient.domain.base.BaseErrorData
 import br.com.mobiplus.gitclient.domain.base.ResultCode
+import br.com.mobiplus.gitclient.domain.model.GithubError
 import br.com.mobiplus.gitclient.domain.model.PullRequestModel
 import br.com.mobiplus.gitclient.domain.usecases.GetPullRequestsUseCase
 import br.com.mobiplus.gitclient.presentation.extensions.loadViewState
@@ -17,8 +18,8 @@ class PullRequestListViewModel(
     private val getPullRequestsUseCase: GetPullRequestsUseCase
 ) : ViewModel() {
     private val _pullRequestListState =
-        MutableLiveData<ViewState<List<PullRequestModel>, BaseErrorData<ResultCode>>>()
-    val pullRequestListState: LiveData<ViewState<List<PullRequestModel>, BaseErrorData<ResultCode>>>
+        MutableLiveData<ViewState<List<PullRequestModel>, BaseErrorData<GithubError>>>()
+    val pullRequestListState: LiveData<ViewState<List<PullRequestModel>, BaseErrorData<GithubError>>>
         get() = _pullRequestListState
 
     fun loadPullRequestList(owner: String, gitRepoName: String) {

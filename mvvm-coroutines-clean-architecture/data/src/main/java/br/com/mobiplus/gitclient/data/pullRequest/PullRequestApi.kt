@@ -7,7 +7,7 @@ import retrofit2.http.Path
 
 interface PullRequestApi {
     @GET("/repos/{ownerModel}/{gitRepoName}/pulls?state=all")
-    suspend fun getPullRequests(
+    suspend fun getPullRequestList(
         @Path("ownerModel") owner: String,
         @Path("gitRepoName") gitRepoName: String
     ): Response<List<PullRequestResponseModel>>

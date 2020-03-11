@@ -8,13 +8,13 @@ import br.com.mobiplus.gitclient.domain.model.PullRequestModel
 import br.com.mobiplus.gitclient.domain.repository.PullRequestRepository
 
 class PullRequestRepositoryImpl(
-    private val pullRequestRemoteDataSource: PullRequestRemoteDataSource
+    private val pullRequestAPIDataSource: PullRequestAPIDataSource
 ) : PullRequestRepository {
     override suspend fun getPullRequestList(
         owner: String,
         gitRepoName: String
     ): FullResultWrapper<List<PullRequestModel>, BaseErrorData<GithubError>> {
-        val listPullRequests = pullRequestRemoteDataSource.getPullRequestList(owner, gitRepoName)
+        val listPullRequests = pullRequestAPIDataSource.getPullRequestList(owner, gitRepoName)
 
         return listPullRequests.transformSuccess(handleGetPullRequestsSuccess())
     }
@@ -25,7 +25,7 @@ class PullRequestRepositoryImpl(
         pullRequestNumber: Long
     ): FullResultWrapper<PullRequestModel, BaseErrorData<GithubError>> {
         val pullRequest =
-            pullRequestRemoteDataSource.getPullRequest(owner, gitRepoName, pullRequestNumber)
+            pullRequestAPIDataSource.getPullRequest(owner, gitRepoName, pullRequestNumber)
 
         return pullRequest.transformSuccess { it.mapTo() }
     }

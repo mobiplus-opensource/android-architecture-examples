@@ -1,20 +1,21 @@
 package br.com.mobiplus.gitclient.data.di
 
 import br.com.mobiplus.gitclient.data.gitrepo.remote.GitRepoApi
-import br.com.mobiplus.gitclient.data.pullRequest.PullRequestRemoteDataSource
-import br.com.mobiplus.gitclient.data.gitrepo.remote.GitRepoRemoteDataSource
+import br.com.mobiplus.gitclient.data.pullRequest.PullRequestAPIDataSource
+import br.com.mobiplus.gitclient.data.gitrepo.remote.GitRepoAPIDataSource
+import br.com.mobiplus.gitclient.data.pullRequest.PullRequestApi
 import org.koin.dsl.module
 
-val remoteDataSourceModule = module {
+val apiDataSourceModule = module {
     factory {
-        GitRepoRemoteDataSource(
+        GitRepoAPIDataSource(
             get() as GitRepoApi
         )
     }
 
     factory {
-        PullRequestRemoteDataSource(
-            pullRequestApi = get()
+        PullRequestAPIDataSource(
+            get() as PullRequestApi
         )
     }
 }

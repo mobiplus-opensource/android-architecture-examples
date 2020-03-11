@@ -6,7 +6,7 @@ import br.com.mobiplus.gitclient.domain.base.BaseErrorData
 import br.com.mobiplus.gitclient.domain.base.resultwrapper.FullResultWrapper
 import br.com.mobiplus.gitclient.domain.model.GithubError
 
-class GitRepoRemoteDataSource(
+class GitRepoAPIDataSource(
     private val gitRepoApi: GitRepoApi
 ) : BaseDataSourceImpl() {
     suspend fun getGitRepoList(

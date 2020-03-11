@@ -1,6 +1,6 @@
 package br.com.mobiplus.gitclient.data.repository
 
-import br.com.mobiplus.gitclient.data.pullRequest.PullRequestRemoteDataSource
+import br.com.mobiplus.gitclient.data.pullRequest.PullRequestAPIDataSource
 import br.com.mobiplus.gitclient.data.pullRequest.PullRequestRepositoryImpl
 import br.com.mobiplus.gitclient.data.pullRequest.model.PullRequestResponseModel
 import br.com.mobiplus.gitclient.data.pullRequest.model.UserResponseModel
@@ -17,7 +17,7 @@ import org.junit.Test
 class PullRequestRepositoryImplTest {
 
     @MockK
-    private lateinit var pullRequestRemoteDataSource: PullRequestRemoteDataSource
+    private lateinit var pullRequestAPIDataSource: PullRequestAPIDataSource
 
     private lateinit var userModel: UserResponseModel
     private lateinit var pullRequestModel: PullRequestResponseModel
@@ -34,13 +34,13 @@ class PullRequestRepositoryImplTest {
     fun listPullRequests() {
 
         coEvery {
-            pullRequestRemoteDataSource.getPullRequestList(any(), any())
+            pullRequestAPIDataSource.getPullRequestList(any(), any())
         } returns FullResultWrapper(
             success = listOf(pullRequestModel)
         )
 
         runBlocking {
-            PullRequestRepositoryImpl(pullRequestRemoteDataSource).getPullRequestList(
+            PullRequestRepositoryImpl(pullRequestAPIDataSource).getPullRequestList(
                 owner = "",
                 gitRepoName = ""
             )
@@ -48,17 +48,17 @@ class PullRequestRepositoryImplTest {
 
 
         coVerify {
-            pullRequestRemoteDataSource.getPullRequestList(any(), any())
+            pullRequestAPIDataSource.getPullRequestList(any(), any())
         }
 
-        confirmVerified(pullRequestRemoteDataSource)
+        confirmVerified(pullRequestAPIDataSource)
     }
 
     @Test
     fun `SHOULD call functions in the correct order`() {
 
         coEvery {
-            pullRequestRemoteDataSource.getPullRequestList(any(), any())
+            pullRequestAPIDataSource.getPullRequestList(any(), any())
         } returns FullResultWrapper(
             success = listOf(pullRequestModel)
         )
@@ -66,7 +66,7 @@ class PullRequestRepositoryImplTest {
         val pullRequestRepositoryImpl =
             spyk(
                 PullRequestRepositoryImpl(
-                    pullRequestRemoteDataSource
+                    pullRequestAPIDataSource
                 ), recordPrivateCalls = true)
         runBlocking {
             pullRequestRepositoryImpl.getPullRequestList("", "")

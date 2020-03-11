@@ -4,12 +4,12 @@ import android.app.Activity
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import br.com.mobiplus.gitclient.domain.model.GitRepoModel
+import br.com.mobiplus.gitclient.presentation.ui.main.model.GitRepoUIModel
 import com.example.basearch.R
 
 class GitRepoListAdapter(
     private val activity: Activity,
-    private val gitRepoList: MutableList<GitRepoModel>,
+    private val gitRepoList: MutableList<GitRepoUIModel>,
     private val listener: GitRepoAdapterListener
 ) : RecyclerView.Adapter<GitRepoViewHolder>() {
 
@@ -29,13 +29,13 @@ class GitRepoListAdapter(
         holder.bindView(activity, repo, listener)
     }
 
-    fun addItems(gitRepos: List<GitRepoModel>) {
+    fun addItems(gitRepos: List<GitRepoUIModel>) {
         val oldSize = gitRepoList.size
         gitRepoList.addAll(gitRepos)
         notifyItemRangeInserted(oldSize, gitRepos.size)
     }
 
-    fun addItem(gitRepo: GitRepoModel) {
+    fun addItem(gitRepo: GitRepoUIModel) {
         gitRepoList.add(gitRepo)
         notifyItemInserted(gitRepoList.size - 1)
     }

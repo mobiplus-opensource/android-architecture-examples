@@ -3,16 +3,16 @@ package br.com.mobiplus.gitclient.presentation.ui.main.adapter
 import android.app.Activity
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import br.com.mobiplus.gitclient.domain.model.GitRepoModel
+import br.com.mobiplus.gitclient.presentation.extensions.isValidForGlide
+import br.com.mobiplus.gitclient.presentation.ui.main.model.GitRepoUIModel
 import com.bumptech.glide.Glide
 import com.example.basearch.R
-import br.com.mobiplus.gitclient.presentation.extensions.isValidForGlide
 import kotlinx.android.synthetic.main.item_repo_list.view.*
 
 class GitRepoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    fun bindView(activity: Activity, gitRepo: GitRepoModel, listener: GitRepoAdapterListener) {
+    fun bindView(activity: Activity, gitRepo: GitRepoUIModel, listener: GitRepoAdapterListener) {
         itemView.textRepoName.text = gitRepo.name
-        itemView.textRepoAuthor.text = gitRepo.ownerModel.login
+        itemView.textRepoAuthor.text = gitRepo.ownerLogin
         itemView.textRepoDescription.text = gitRepo.description
         itemView.textStarsCount.text = gitRepo.stargazersCount.toString()
         itemView.textForksCount.text = gitRepo.forksCount.toString()
@@ -20,7 +20,7 @@ class GitRepoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         if (activity.isValidForGlide()) {
             Glide.with(activity)
-                .load(gitRepo.ownerModel.avatarUrl)
+                .load(gitRepo.ownerAvatarUrl)
                 .placeholder(R.drawable.ic_person)
                 .error(R.drawable.ic_person)
                 .into(itemView.imageRepoAuthor)

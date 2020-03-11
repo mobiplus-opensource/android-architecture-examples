@@ -4,15 +4,15 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import br.com.mobiplus.gitclient.domain.model.GitRepoModel
-import com.example.basearch.R
 import br.com.mobiplus.gitclient.presentation.extensions.setGone
 import br.com.mobiplus.gitclient.presentation.extensions.setVisible
 import br.com.mobiplus.gitclient.presentation.extensions.showToast
 import br.com.mobiplus.gitclient.presentation.ui.base.ViewState
-import br.com.mobiplus.gitclient.presentation.ui.main.adapter.GitRepoListAdapter
 import br.com.mobiplus.gitclient.presentation.ui.main.adapter.GitRepoAdapterListener
+import br.com.mobiplus.gitclient.presentation.ui.main.adapter.GitRepoListAdapter
+import br.com.mobiplus.gitclient.presentation.ui.main.model.GitRepoUIModel
 import br.com.mobiplus.gitclient.presentation.ui.pullRequest.list.PullRequestListActivity
+import com.example.basearch.R
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -74,11 +74,11 @@ class MainActivity : AppCompatActivity() {
             this,
             mutableListOf(),
             object : GitRepoAdapterListener {
-                override fun onItemClick(gitRepo: GitRepoModel) {
+                override fun onItemClick(item: GitRepoUIModel) {
                     PullRequestListActivity.open(
                         this@MainActivity,
-                        gitRepo.ownerModel.login!!,
-                        gitRepo.name!!
+                        item.ownerLogin!!,
+                        item.name!!
                     )
                 }
 
@@ -114,7 +114,7 @@ class MainActivity : AppCompatActivity() {
         textReposError.text = ""
     }
 
-    private fun showGitRepoList(gitRepos: List<GitRepoModel>) {
+    private fun showGitRepoList(gitRepos: List<GitRepoUIModel>) {
         hideLoadingView()
         hideErrorView()
 

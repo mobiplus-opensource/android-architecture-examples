@@ -1,7 +1,7 @@
 package br.com.mobiplus.gitclient.presentation.ui.main.adapter
 
-import br.com.mobiplus.gitclient.domain.model.GitRepoModel
+import br.com.mobiplus.gitclient.presentation.ui.main.model.GitRepoUIModel
 
 interface GitRepoAdapterListener {
-    fun onItemClick(gitRepo: GitRepoModel)
+    fun onItemClick(item: GitRepoUIModel)
 }

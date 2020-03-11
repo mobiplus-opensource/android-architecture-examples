@@ -11,7 +11,7 @@ class FullResultWrapper<SUCCESS, ERROR>(
 
     override fun <TO_SUCCESS, TO_ERROR> transform(
         mapperSuccessFunction: (originalSuccess: SUCCESS) -> TO_SUCCESS,
-        mapperErrorFunction: (originalError: ERROR?) -> TO_ERROR
+        mapperErrorFunction: (originalError: ERROR) -> TO_ERROR
     ): FullResultWrapper<TO_SUCCESS, TO_ERROR> {
 
         return if (this.success != null) {
@@ -22,7 +22,7 @@ class FullResultWrapper<SUCCESS, ERROR>(
             )
         } else {
             FullResultWrapper(
-                error = mapperErrorFunction.invoke(this.error),
+                error = this.error?.let { mapperErrorFunction.invoke(it) },
                 resultCode = this.resultCode,
                 keyValueMap = this.keyValueMap
             )

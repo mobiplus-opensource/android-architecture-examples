@@ -21,7 +21,7 @@ open class ResultWrapper<SUCCESS, ERROR>(
      */
     open fun <TO_SUCCESS, TO_ERROR> transform(
         mapperSuccessFunction: (originalSuccess: SUCCESS) -> TO_SUCCESS,
-        mapperErrorFunction: (originalError: ERROR?) -> TO_ERROR
+        mapperErrorFunction: (originalError: ERROR) -> TO_ERROR
     ): ResultWrapper<TO_SUCCESS, TO_ERROR> {
         return if (this.success != null) {
             ResultWrapper(
@@ -29,7 +29,7 @@ open class ResultWrapper<SUCCESS, ERROR>(
             )
         } else {
             ResultWrapper(
-                error = mapperErrorFunction.invoke(this.error)
+                error = this.error?.let { mapperErrorFunction.invoke(it) }
             )
         }
     }

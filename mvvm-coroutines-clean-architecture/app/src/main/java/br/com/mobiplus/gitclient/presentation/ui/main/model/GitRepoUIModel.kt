@@ -21,7 +21,7 @@ data class GitRepoUIModel(
         this.description = from.description
         this.stargazersCount = from.stargazersCount
         this.forksCount = from.forksCount
-        this.reliabilityFactor = Random.nextInt(0, 100)
+        this.reliabilityFactor = from.reliabilityFactor
         this.language = from.language
         this.openIssuesCount = from.openIssuesCount
         this.ownerLogin = from.ownerModel.login

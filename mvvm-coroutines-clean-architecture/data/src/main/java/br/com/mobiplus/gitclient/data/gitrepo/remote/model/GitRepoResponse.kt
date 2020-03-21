@@ -2,6 +2,7 @@ package br.com.mobiplus.gitclient.data.gitrepo.remote.model
 
 import br.com.mobiplus.gitclient.domain.model.GitRepoModel
 import com.google.gson.annotations.SerializedName
+import kotlin.random.Random
 
 data class GitRepoResponse(
     @SerializedName("private") val isPrivate: Boolean?,
@@ -96,6 +97,7 @@ data class GitRepoResponse(
         url = this.url,
         watchers = this.watchers,
         watchersCount = this.watchersCount,
-        stargazersCount = this.stargazersCount
+        stargazersCount = this.stargazersCount,
+        reliabilityFactor = Random.nextInt(0, 100)
     )
 }

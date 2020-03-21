@@ -19,5 +19,6 @@ data class GitRepoModel(
     val url: String? = null,
     val watchers: Int? = null,
     val watchersCount: Int? = null,
-    val stargazersCount: Int? = null
+    val stargazersCount: Int? = null,
+    val reliabilityFactor: Int? = null
 )

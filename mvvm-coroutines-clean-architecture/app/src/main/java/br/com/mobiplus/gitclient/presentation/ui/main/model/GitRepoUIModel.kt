@@ -1,7 +1,6 @@
 package br.com.mobiplus.gitclient.presentation.ui.main.model
 
 import br.com.mobiplus.gitclient.domain.model.GitRepoModel
-import kotlin.random.Random
 
 data class GitRepoUIModel(
     var id: Int? = null,

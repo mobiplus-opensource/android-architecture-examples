@@ -17,6 +17,7 @@ class GitRepoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         itemView.textStarsCount.text = gitRepo.stargazersCount.toString()
         itemView.textForksCount.text = gitRepo.forksCount.toString()
         itemView.textIssuesCount.text = gitRepo.openIssuesCount.toString()
+        itemView.textReliability.text = gitRepo.reliabilityFactor.toString()
 
         if (activity.isValidForGlide()) {
             Glide.with(activity)

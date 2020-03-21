@@ -1,6 +1,7 @@
 package br.com.mobiplus.gitclient.presentation.ui.main.model
 
 import br.com.mobiplus.gitclient.domain.model.GitRepoModel
+import kotlin.random.Random
 
 data class GitRepoUIModel(
     var id: Int? = null,
@@ -8,6 +9,7 @@ data class GitRepoUIModel(
     var description: String? = null,
     var stargazersCount: Int? = null,
     var forksCount: Int? = null,
+    var reliabilityFactor: Int? = null,
     var language: String? = null,
     var openIssuesCount: Int? = null,
     var ownerLogin: String? = null,
@@ -19,6 +21,7 @@ data class GitRepoUIModel(
         this.description = from.description
         this.stargazersCount = from.stargazersCount
         this.forksCount = from.forksCount
+        this.reliabilityFactor = Random.nextInt(0, 100)
         this.language = from.language
         this.openIssuesCount = from.openIssuesCount
         this.ownerLogin = from.ownerModel.login

@@ -1,15 +1,20 @@
 package br.com.mobiplus.gitclient.data.gitrepo
 
 import br.com.mobiplus.gitclient.data.gitrepo.remote.GitRepoAPIDataSource
+import br.com.mobiplus.gitclient.data.gitrepo.remote.GitRepoStatsDataSource
 import br.com.mobiplus.gitclient.data.gitrepo.remote.model.GetRepoListResponse
+import br.com.mobiplus.gitclient.data.gitrepo.remote.model.GitRepoStatsResponseModel
 import br.com.mobiplus.gitclient.domain.base.BaseErrorData
+import br.com.mobiplus.gitclient.domain.base.resultwrapper.FullResultWrapper
 import br.com.mobiplus.gitclient.domain.base.resultwrapper.ResultWrapper
 import br.com.mobiplus.gitclient.domain.model.GitRepoModel
+import br.com.mobiplus.gitclient.domain.model.GitRepoStatsModel
 import br.com.mobiplus.gitclient.domain.model.GithubError
 import br.com.mobiplus.gitclient.domain.repository.GitRepoRepository
 
 class GitRepoRepositoryImpl(
-    private val gitRepoAPIDataSource: GitRepoAPIDataSource
+    private val gitRepoAPIDataSource: GitRepoAPIDataSource,
+    private val gitRepoStatsDataSource: GitRepoStatsDataSource
 ) : GitRepoRepository {
 
     override suspend fun getGitRepoList(
@@ -45,5 +50,15 @@ class GitRepoRepositoryImpl(
         id: Int
     ): ResultWrapper<GitRepoModel, BaseErrorData<GithubError>> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun getGitRepoStats(
+        owner: String,
+        gitRepoName: String
+    ): FullResultWrapper<GitRepoStatsModel, BaseErrorData<GithubError>> {
+        return gitRepoStatsDataSource.getGitRepoStats(owner, gitRepoName)
+            .transformSuccess {
+                it.mapTo()
+            }
     }
 }

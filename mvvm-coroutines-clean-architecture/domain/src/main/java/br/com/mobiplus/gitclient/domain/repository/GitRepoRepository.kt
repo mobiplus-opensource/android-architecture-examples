@@ -1,8 +1,10 @@
 package br.com.mobiplus.gitclient.domain.repository
 
 import br.com.mobiplus.gitclient.domain.base.BaseErrorData
+import br.com.mobiplus.gitclient.domain.base.resultwrapper.FullResultWrapper
 import br.com.mobiplus.gitclient.domain.base.resultwrapper.ResultWrapper
 import br.com.mobiplus.gitclient.domain.model.GitRepoModel
+import br.com.mobiplus.gitclient.domain.model.GitRepoStatsModel
 import br.com.mobiplus.gitclient.domain.model.GithubError
 
 interface GitRepoRepository {
@@ -15,4 +17,9 @@ interface GitRepoRepository {
     suspend fun getGitRepo(
         id: Int
     ): ResultWrapper<GitRepoModel, BaseErrorData<GithubError>>
+
+    fun getGitRepoStats(
+        owner: String,
+        gitRepoName: String
+    ): FullResultWrapper<GitRepoStatsModel, BaseErrorData<GithubError>>
 }

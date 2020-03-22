@@ -17,6 +17,9 @@ class GetGitRepoListUseCaseTest {
     @MockK(relaxUnitFun = true)
     private lateinit var gitRepoRepository: GitRepoRepository
 
+    @MockK(relaxUnitFun = true)
+    private lateinit var getGitRepoReliabilityFactorUseCase: GetGitRepoReliabilityFactorUseCase
+
     private val fakePage = 1
     private val fakeLanguage = "java"
 
@@ -36,7 +39,7 @@ class GetGitRepoListUseCaseTest {
             success = FakeGitRepoModel.mock(1)
         )
 
-        GetGitRepoListUseCase(gitRepoRepository).runAsync(GetGitRepoListUseCase.Params())
+        GetGitRepoListUseCase(gitRepoRepository, getGitRepoReliabilityFactorUseCase).runAsync(GetGitRepoListUseCase.Params())
 
         coVerify {
             gitRepoRepository.getGitRepoList(

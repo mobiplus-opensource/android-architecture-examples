@@ -46,6 +46,16 @@
             android:ellipsize="end"
             tools:text="Author Name"/>
 
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textReliability"
+            style="@style/AppText.Details.Reliability"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_reliability"
+            app:layout_constraintStart_toEndOf="@+id/imageRepoAuthor"
+            app:layout_constraintTop_toBottomOf="@+id/textRepoAuthor"
+            tools:text="12.08"/>
+
         <LinearLayout
             android:id="@+id/layoutRepoDescription"
             android:layout_width="0dp"
@@ -53,16 +63,15 @@
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageRepoAuthor"
-            app:layout_constraintTop_toBottomOf="@+id/textRepoAuthor">
+            app:layout_constraintTop_toBottomOf="@+id/textReliability">
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/textRepoDescription"
                 style="@style/AppText.Description"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:maxLines="2"
-                tools:text="This os the description from Glide RepoThis os the description from Glide RepoThis os the description from Glide RepoThis os the description from Glide Repo"
-                android:ellipsize="end"/>
+                android:ellipsize="end"
+                tools:text="This os the description from Glide RepoThis os the description from Glide RepoThis os the description from Glide RepoThis os the description from Glide Repo" />
 
         </LinearLayout>
 
@@ -95,17 +104,6 @@
             app:layout_constraintStart_toEndOf="@+id/textForksCount"
             app:layout_constraintTop_toBottomOf="@+id/layoutRepoDescription"
             tools:text="5"/>
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/textReliability"
-            style="@style/AppText.Details"
-            android:layout_marginTop="@dimen/margin_default"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:drawableStart="@drawable/ic_reliability"
-            app:layout_constraintStart_toEndOf="@+id/imageRepoAuthor"
-            app:layout_constraintTop_toBottomOf="@+id/textStarsCount"
-            tools:text="120"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

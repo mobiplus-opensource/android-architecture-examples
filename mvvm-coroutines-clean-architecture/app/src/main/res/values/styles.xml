@@ -42,6 +42,12 @@
         <item name="android:textAppearance">@style/Base.TextAppearance.AppCompat.Small</item>
     </style>
 
+    <style name="AppText.Details.Reliability">
+<!--        <item name="android:layout_marginStart">0dp</item>-->
+<!--        <item name="android:layout_marginTop">0dp</item>-->
+        <item name="android:layout_marginBottom">@dimen/margin_default</item>
+    </style>
+
     <style name="AppCardView" parent="CardView">
         <item name="android:layout_marginBottom">@dimen/margin_medium</item>
         <item name="android:layout_marginTop">@dimen/margin_medium</item>

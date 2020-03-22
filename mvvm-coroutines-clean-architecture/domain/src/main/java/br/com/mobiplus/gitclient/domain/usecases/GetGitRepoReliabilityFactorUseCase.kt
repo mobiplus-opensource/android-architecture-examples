@@ -6,7 +6,6 @@ import br.com.mobiplus.gitclient.domain.base.usecase.BaseUseCase
 import br.com.mobiplus.gitclient.domain.model.GitRepoStatsModel
 import br.com.mobiplus.gitclient.domain.model.GithubError
 import br.com.mobiplus.gitclient.domain.repository.GitRepoRepository
-import kotlin.random.Random
 
 class GetGitRepoReliabilityFactorUseCase(
     private val gitRepoRepository: GitRepoRepository

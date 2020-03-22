@@ -97,7 +97,6 @@ data class GitRepoResponse(
         url = this.url,
         watchers = this.watchers,
         watchersCount = this.watchersCount,
-        stargazersCount = this.stargazersCount,
-        reliabilityFactor = Random.nextInt(0, 100)
+        stargazersCount = this.stargazersCount
     )
 }

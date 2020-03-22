@@ -10,9 +10,9 @@ import kotlin.random.Random
 
 class GetGitRepoReliabilityFactorUseCase(
     private val gitRepoRepository: GitRepoRepository
-) : BaseUseCase<ResultWrapper<Int, BaseErrorData<GithubError>>, GetGitRepoReliabilityFactorUseCase.Params>() {
+) : BaseUseCase<ResultWrapper<Double, BaseErrorData<GithubError>>, GetGitRepoReliabilityFactorUseCase.Params>() {
 
-    override fun runSync(params: Params): ResultWrapper<Int, BaseErrorData<GithubError>> {
+    override fun runSync(params: Params): ResultWrapper<Double, BaseErrorData<GithubError>> {
         val result = gitRepoRepository.getGitRepoStats(params.owner, params.gitRepoName)
 
         return result.transformSuccess(
@@ -20,7 +20,7 @@ class GetGitRepoReliabilityFactorUseCase(
         )
     }
 
-    private fun handleSuccess(): (GitRepoStatsModel) -> Int {
+    private fun handleSuccess(): (GitRepoStatsModel) -> Double {
         return { gitRepoStatsModel ->
             calculateReliabilityFactor(
                 engagementMultiplier = 4,
@@ -38,12 +38,12 @@ class GetGitRepoReliabilityFactorUseCase(
         openedIssues: Int,
         mergedPullRequests: Int,
         proposedPullRequests: Int
-    ): Int {
-        return (openedIssues +
-                proposedPullRequests +
-                (closedIssues * engagementMultiplier) +
-                (mergedPullRequests * engagementMultiplier)
-                ) / 100
+    ): Double {
+        return ((openedIssues.toDouble() +
+                proposedPullRequests.toDouble() +
+                (closedIssues * engagementMultiplier).toDouble() +
+                (mergedPullRequests * engagementMultiplier).toDouble()
+                ) / 100)
     }
 
     data class Params(

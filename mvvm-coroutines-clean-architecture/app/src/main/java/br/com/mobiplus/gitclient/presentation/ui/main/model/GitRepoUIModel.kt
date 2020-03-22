@@ -8,7 +8,7 @@ data class GitRepoUIModel(
     var description: String? = null,
     var stargazersCount: Int? = null,
     var forksCount: Int? = null,
-    var reliabilityFactor: Int? = null,
+    var reliabilityFactor: Double? = null,
     var language: String? = null,
     var openIssuesCount: Int? = null,
     var ownerLogin: String? = null,

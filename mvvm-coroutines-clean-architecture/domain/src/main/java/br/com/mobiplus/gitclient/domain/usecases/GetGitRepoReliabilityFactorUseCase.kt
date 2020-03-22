@@ -23,11 +23,11 @@ class GetGitRepoReliabilityFactorUseCase(
     private fun handleSuccess(): (GitRepoStatsModel) -> Int {
         return { gitRepoStatsModel ->
             calculateReliabilityFactor(
-                Random.nextInt(2, 4),
-                gitRepoStatsModel.closedIssuesOnLastMonth,
-                gitRepoStatsModel.openedIssuesOnLastMonth,
-                gitRepoStatsModel.mergedPullRequestsOnLastMonth,
-                gitRepoStatsModel.proposedPullRequestsOnLastMonth
+                engagementMultiplier = 4,
+                closedIssues = gitRepoStatsModel.closedIssuesOnLastMonth,
+                openedIssues = gitRepoStatsModel.openedIssuesOnLastMonth,
+                mergedPullRequests = gitRepoStatsModel.mergedPullRequestsOnLastMonth,
+                proposedPullRequests = gitRepoStatsModel.proposedPullRequestsOnLastMonth
             )
         }
     }

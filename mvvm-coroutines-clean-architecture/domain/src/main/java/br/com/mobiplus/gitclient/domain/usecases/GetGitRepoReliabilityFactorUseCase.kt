@@ -15,11 +15,11 @@ class GetGitRepoReliabilityFactorUseCase(
         val result = gitRepoRepository.getGitRepoStats(params.owner, params.gitRepoName)
 
         return result.transformSuccess(
-            handleSuccess()
+            transformSuccess()
         )
     }
 
-    private fun handleSuccess(): (GitRepoStatsModel) -> Double {
+    private fun transformSuccess(): (GitRepoStatsModel) -> Double {
         return { gitRepoStatsModel ->
             calculateReliabilityFactor(
                 engagementMultiplier = 4,
@@ -38,12 +38,32 @@ class GetGitRepoReliabilityFactorUseCase(
         mergedPullRequests: Int,
         proposedPullRequests: Int
     ): Double {
-        return ((openedIssues.toDouble() +
-                proposedPullRequests.toDouble() +
-                (closedIssues * engagementMultiplier).toDouble() +
-                (mergedPullRequests * engagementMultiplier).toDouble()
-                ) / 100)
+        val issuesPoints = calculateIssuesPoints(
+            engagementMultiplier = engagementMultiplier.toDouble(),
+            closedIssues = closedIssues.toDouble(),
+            openedIssues = openedIssues.toDouble()
+        )
+
+        val pullRequestPoints = calculatePullRequestsPoints(
+            engagementMultiplier = engagementMultiplier.toDouble(),
+            mergedPullRequests = mergedPullRequests.toDouble(),
+            proposedPullRequests = proposedPullRequests.toDouble()
+        )
+
+        return (issuesPoints + pullRequestPoints) / 100
     }
+
+    private fun calculateIssuesPoints(
+        engagementMultiplier: Double,
+        closedIssues: Double,
+        openedIssues: Double
+    ) = (closedIssues * engagementMultiplier) + openedIssues
+
+    private fun calculatePullRequestsPoints(
+        engagementMultiplier: Double,
+        mergedPullRequests: Double,
+        proposedPullRequests: Double
+    ) = (mergedPullRequests * engagementMultiplier) + proposedPullRequests
 
     data class Params(
         val owner: String,

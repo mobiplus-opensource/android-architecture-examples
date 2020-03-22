@@ -18,13 +18,13 @@ class FakeResultWrapper {
             )
         }
 
-        fun <SUCCESS, ERROR> mockFullSuccess(success: SUCCESS): ResultWrapper<SUCCESS, ERROR> {
+        fun <SUCCESS, ERROR> mockFullSuccess(success: SUCCESS): FullResultWrapper<SUCCESS, ERROR> {
             return FullResultWrapper(
                 success = success
             )
         }
 
-        fun <SUCCESS, ERROR> mockFullError(error: ERROR): ResultWrapper<SUCCESS, ERROR> {
+        fun <SUCCESS, ERROR> mockFullError(error: ERROR): FullResultWrapper<SUCCESS, ERROR> {
             return FullResultWrapper(
                 error = error
             )

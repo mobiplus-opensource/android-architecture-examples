@@ -25,7 +25,7 @@ class GetGitRepoReliabilityFactorUseCaseTest {
     }
 
     @Test
-    fun `SHOULD call correct functions WHEN is called`() {
+    fun `SHOULD call correct functions WHEN runSync is called`() {
         every {
             gitRepoRepository.getGitRepoStats(any(), any())
         } returns FakeResultWrapper.mockFullSuccess(

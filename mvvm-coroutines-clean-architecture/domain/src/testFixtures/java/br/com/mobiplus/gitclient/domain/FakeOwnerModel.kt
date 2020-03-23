@@ -6,7 +6,8 @@ class FakeOwnerModel {
     
     companion object {
         fun mock() = OwnerModel(
-            id = 1
+            id = 1,
+            login = "#FAKE_LOGIN"
         )
     }
 }

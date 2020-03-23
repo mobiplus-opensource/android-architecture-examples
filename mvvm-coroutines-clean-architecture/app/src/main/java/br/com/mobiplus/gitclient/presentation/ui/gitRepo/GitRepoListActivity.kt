@@ -1,4 +1,4 @@
-package br.com.mobiplus.gitclient.presentation.ui.main
+package br.com.mobiplus.gitclient.presentation.ui.gitRepo
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -8,21 +8,22 @@ import br.com.mobiplus.gitclient.presentation.extensions.setGone
 import br.com.mobiplus.gitclient.presentation.extensions.setVisible
 import br.com.mobiplus.gitclient.presentation.extensions.showToast
 import br.com.mobiplus.gitclient.presentation.ui.base.ViewState
-import br.com.mobiplus.gitclient.presentation.ui.main.adapter.GitRepoAdapterListener
-import br.com.mobiplus.gitclient.presentation.ui.main.adapter.GitRepoListAdapter
-import br.com.mobiplus.gitclient.presentation.ui.main.model.GitRepoUIModel
+import br.com.mobiplus.gitclient.presentation.ui.gitRepo.adapter.GitRepoAdapterListener
+import br.com.mobiplus.gitclient.presentation.ui.gitRepo.adapter.GitRepoListAdapter
+import br.com.mobiplus.gitclient.presentation.ui.gitRepo.model.GitRepoUIModel
 import br.com.mobiplus.gitclient.presentation.ui.pullRequest.list.PullRequestListActivity
 import com.example.basearch.R
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_git_repo_list.*
+
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class MainActivity : AppCompatActivity() {
-    private val viewModel by viewModel<MainViewModel>()
+class GitRepoListActivity : AppCompatActivity() {
+    private val viewModel by viewModel<GitRepoListViewModel>()
     private lateinit var gitRepoAdapter: GitRepoListAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_git_repo_list)
 
         initReposRecyclerView()
         initObservers()
@@ -76,7 +77,7 @@ class MainActivity : AppCompatActivity() {
             object : GitRepoAdapterListener {
                 override fun onItemClick(item: GitRepoUIModel) {
                     PullRequestListActivity.open(
-                        this@MainActivity,
+                        this@GitRepoListActivity,
                         item.ownerLogin!!,
                         item.name!!
                     )

@@ -1,4 +1,4 @@
-package br.com.mobiplus.gitclient.presentation.ui.main.model
+package br.com.mobiplus.gitclient.presentation.ui.gitRepo.model
 
 import br.com.mobiplus.gitclient.domain.model.GitRepoModel
 import java.util.*

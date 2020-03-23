@@ -1,10 +1,10 @@
-package br.com.mobiplus.gitclient.presentation.ui.main.adapter
+package br.com.mobiplus.gitclient.presentation.ui.gitRepo.adapter
 
 import android.app.Activity
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import br.com.mobiplus.gitclient.presentation.extensions.isValidForGlide
-import br.com.mobiplus.gitclient.presentation.ui.main.model.GitRepoUIModel
+import br.com.mobiplus.gitclient.presentation.ui.gitRepo.model.GitRepoUIModel
 import com.bumptech.glide.Glide
 import com.example.basearch.R
 import kotlinx.android.synthetic.main.item_repo_list.view.*

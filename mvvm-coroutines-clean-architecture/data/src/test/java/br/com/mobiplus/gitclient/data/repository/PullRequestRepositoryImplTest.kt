@@ -67,7 +67,8 @@ class PullRequestRepositoryImplTest {
             spyk(
                 PullRequestRepositoryImpl(
                     pullRequestAPIDataSource
-                ), recordPrivateCalls = true)
+                ), recordPrivateCalls = true
+            )
         runBlocking {
             pullRequestRepositoryImpl.getPullRequestList("", "")
         }

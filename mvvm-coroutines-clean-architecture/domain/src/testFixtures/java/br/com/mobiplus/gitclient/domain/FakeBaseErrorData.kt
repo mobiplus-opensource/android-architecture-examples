@@ -6,11 +6,11 @@ import br.com.mobiplus.gitclient.domain.model.GithubError
 class FakeBaseErrorData {
 
     companion object {
-        fun mockStringError() = BaseErrorData (
+        fun mockStringError() = BaseErrorData(
             errorBody = "# TEST MESSAGE"
         )
 
-        fun mockStatusError() = BaseErrorData (
+        fun mockStatusError() = BaseErrorData(
             errorBody = GithubError(
                 message = "any",
                 documentation_url = "http://test.url"

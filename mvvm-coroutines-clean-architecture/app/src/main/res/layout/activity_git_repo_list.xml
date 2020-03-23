@@ -10,8 +10,8 @@
         android:id="@+id/layoutReposLoading"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:gravity="center"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,7 +24,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/repo_loading_message"/>
+            android:text="@string/repo_loading_message" />
 
     </LinearLayout>
 
@@ -32,8 +32,8 @@
         android:id="@+id/layoutReposError"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:gravity="center"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,13 +43,13 @@
             android:id="@+id/textReposError"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="@string/error_message"/>
+            tools:text="@string/error_message" />
 
         <Button
             android:id="@+id/buttonReposTryAgain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/try_again"/>
+            android:text="@string/try_again" />
 
     </LinearLayout>
 
@@ -60,6 +60,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

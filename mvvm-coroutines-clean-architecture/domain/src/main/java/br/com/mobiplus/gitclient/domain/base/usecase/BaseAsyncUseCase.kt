@@ -3,7 +3,7 @@ package br.com.mobiplus.gitclient.domain.base.usecase
 /**
  * @Descrição: Classe base para a criação de casos de uso.
  */
-abstract class BaseAsyncUseCase<RESULT, PARAMS>: UseCase<RESULT, PARAMS> {
+abstract class BaseAsyncUseCase<RESULT, PARAMS> : UseCase<RESULT, PARAMS> {
     override suspend fun runAsync(): RESULT {
         throw InvalidUseCaseCall("If you want to run without params and asynchronously, you should extend NoParamsBaseAsyncUseCase")
     }

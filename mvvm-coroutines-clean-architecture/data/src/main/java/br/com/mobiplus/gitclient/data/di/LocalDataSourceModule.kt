@@ -12,5 +12,5 @@ val localDataSourceModule = module {
     single { Room.databaseBuilder(androidContext(), WBDatabase::class.java, "basearch.db").build() }
     single { get<WBDatabase>().gitRepoDao() }
 
-    factory { GitRepoLocalDataSource(gitRepoDao = get())}
+    factory { GitRepoLocalDataSource(gitRepoDao = get()) }
 }

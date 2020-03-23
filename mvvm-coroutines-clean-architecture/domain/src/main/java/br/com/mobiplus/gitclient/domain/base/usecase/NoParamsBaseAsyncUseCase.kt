@@ -1,6 +1,6 @@
 package br.com.mobiplus.gitclient.domain.base.usecase
 
-abstract class NoParamsBaseAsyncUseCase<RESULT>: UseCase<RESULT, NoParams> {
+abstract class NoParamsBaseAsyncUseCase<RESULT> : UseCase<RESULT, NoParams> {
     override fun runSync(): RESULT {
         throw InvalidUseCaseCall("If you want to run without params and synchronously, you should extend NoParamsBaseUseCase")
     }

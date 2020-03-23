@@ -17,7 +17,7 @@ data class PullRequestResponseModel(
     @SerializedName("deletions") val deletions: Int,
     @SerializedName("changed_files") val changedFiles: Int
 ) {
-    fun mapTo() = PullRequestModel (
+    fun mapTo() = PullRequestModel(
         number = this.number,
         htmlUrl = this.htmlUrl,
         title = this.title,

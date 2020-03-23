@@ -9,7 +9,7 @@ data class GitRepoStatsResponseModel(
     val mergedPullRequestsOnLastMonth: Int,
     val proposedPullRequestsOnLastMonth: Int
 ) {
-    fun mapTo() = GitRepoStatsModel (
+    fun mapTo() = GitRepoStatsModel(
         name = this.name,
         proposedPullRequestsOnLastMonth = this.proposedPullRequestsOnLastMonth,
         mergedPullRequestsOnLastMonth = this.mergedPullRequestsOnLastMonth,

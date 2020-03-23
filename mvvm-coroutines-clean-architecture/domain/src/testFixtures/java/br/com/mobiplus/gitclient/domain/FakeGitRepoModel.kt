@@ -3,7 +3,7 @@ package br.com.mobiplus.gitclient.domain
 import br.com.mobiplus.gitclient.domain.model.GitRepoModel
 
 class FakeGitRepoModel {
-    
+
     companion object {
         fun mock(itemsOnList: Int): List<GitRepoModel> {
             val list = mutableListOf<GitRepoModel>()

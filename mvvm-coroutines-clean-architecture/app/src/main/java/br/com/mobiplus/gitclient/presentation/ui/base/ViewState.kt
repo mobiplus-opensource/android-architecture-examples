@@ -9,7 +9,7 @@ sealed class ViewState<SUCCESS, ERROR> {
         val error: ERROR? = null
     ) : ViewState<SUCCESS, ERROR>()
 
-    class Empty<SUCCESS, ERROR>: ViewState<SUCCESS, ERROR>()
+    class Empty<SUCCESS, ERROR> : ViewState<SUCCESS, ERROR>()
 
-    class Loading<SUCCESS, ERROR>: ViewState<SUCCESS, ERROR>()
+    class Loading<SUCCESS, ERROR> : ViewState<SUCCESS, ERROR>()
 }

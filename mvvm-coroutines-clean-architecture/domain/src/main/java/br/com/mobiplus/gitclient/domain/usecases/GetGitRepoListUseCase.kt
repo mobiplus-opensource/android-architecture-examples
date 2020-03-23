@@ -17,7 +17,7 @@ class GetGitRepoListUseCase(
         return gitRepoRepository.getGitRepoList(
             page = 1,
             language = "java"
-        ).transformSuccess ( transformSuccess() )
+        ).transformSuccess(transformSuccess())
     }
 
     private fun transformSuccess(): (List<GitRepoModel>) -> List<GitRepoModel> {

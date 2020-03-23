@@ -24,10 +24,22 @@ class GitRepoStatsDataSource(
         return FullResultWrapper(
             success = GitRepoStatsResponseModel(
                 name = gitRepoName,
-                closedIssuesOnLastMonth = Random.nextInt(Random.nextInt(0, 500), Random.nextInt(501, 1000)),
-                openedIssuesOnLastMonth = Random.nextInt(Random.nextInt(0, 500), Random.nextInt(501, 1000)),
-                mergedPullRequestsOnLastMonth = Random.nextInt(Random.nextInt(0, 500), Random.nextInt(501, 1000)),
-                proposedPullRequestsOnLastMonth = Random.nextInt(Random.nextInt(0, 500), Random.nextInt(501, 1000))
+                closedIssuesOnLastMonth = Random.nextInt(
+                    Random.nextInt(0, 500),
+                    Random.nextInt(501, 1000)
+                ),
+                openedIssuesOnLastMonth = Random.nextInt(
+                    Random.nextInt(0, 500),
+                    Random.nextInt(501, 1000)
+                ),
+                mergedPullRequestsOnLastMonth = Random.nextInt(
+                    Random.nextInt(0, 500),
+                    Random.nextInt(501, 1000)
+                ),
+                proposedPullRequestsOnLastMonth = Random.nextInt(
+                    Random.nextInt(0, 500),
+                    Random.nextInt(501, 1000)
+                )
             )
         )
     }

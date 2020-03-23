@@ -55,9 +55,10 @@ class PullRequestListViewModelTest {
         val testObserver = viewModel.pullRequestListState.test()
         testObserver.assertNoValue()
 
-        val resultWrapper = FakeResultWrapper.mockSuccess<List<PullRequestModel>, BaseErrorData<GithubError>>(
-            FakePullRequestModel.mockList(1)
-        )
+        val resultWrapper =
+            FakeResultWrapper.mockSuccess<List<PullRequestModel>, BaseErrorData<GithubError>>(
+                FakePullRequestModel.mockList(1)
+            )
 
         coEvery {
             getPullRequestsUseCase.runAsync(params)
@@ -93,9 +94,10 @@ class PullRequestListViewModelTest {
         val testObserver = viewModel.pullRequestListState.test()
         testObserver.assertNoValue()
 
-        val emptyResultWrapper = FakeResultWrapper.mockSuccess<List<PullRequestModel>, BaseErrorData<GithubError>>(
-            success = listOf()
-        )
+        val emptyResultWrapper =
+            FakeResultWrapper.mockSuccess<List<PullRequestModel>, BaseErrorData<GithubError>>(
+                success = listOf()
+            )
 
         coEvery {
             getPullRequestsUseCase.runAsync(params)
@@ -126,9 +128,10 @@ class PullRequestListViewModelTest {
         testObserver.assertNoValue()
 
 
-        val errorResultWrapper = FakeResultWrapper.mockError<List<PullRequestModel>, BaseErrorData<GithubError>>(
-            FakeBaseErrorData.mockStatusError()
-        )
+        val errorResultWrapper =
+            FakeResultWrapper.mockError<List<PullRequestModel>, BaseErrorData<GithubError>>(
+                FakeBaseErrorData.mockStatusError()
+            )
 
         coEvery {
             getPullRequestsUseCase.runAsync(params)

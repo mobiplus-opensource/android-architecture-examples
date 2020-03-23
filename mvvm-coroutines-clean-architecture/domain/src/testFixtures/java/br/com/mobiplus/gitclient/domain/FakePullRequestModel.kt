@@ -10,7 +10,7 @@ class FakePullRequestModel {
         fun mockList(itemsOnList: Int) : List<PullRequestModel> {
             val list = mutableListOf<PullRequestModel>()
 
-            for (index in 0 .. itemsOnList) {
+            for (index in 0 until itemsOnList) {
                 list.add(
                     mock(
                         FakeUserModel.mock()

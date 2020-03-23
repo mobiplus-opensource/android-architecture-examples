@@ -8,7 +8,7 @@ class FakeGitRepoModel {
         fun mock(itemsOnList: Int): List<GitRepoModel> {
             val list = mutableListOf<GitRepoModel>()
 
-            for (index in 0 .. itemsOnList) {
+            for (index in 0 until itemsOnList) {
                 list.add(
                     mock()
                 )

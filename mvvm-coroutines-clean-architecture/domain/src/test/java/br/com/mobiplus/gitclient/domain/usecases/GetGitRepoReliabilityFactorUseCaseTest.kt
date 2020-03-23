@@ -64,6 +64,13 @@ class GetGitRepoReliabilityFactorUseCaseTest {
             )
         )
 
+        every {
+            gitRepoRepository.getGitRepoReliabilityMultiplier()
+        } returns FeatureFlagModel(
+            enabled = true,
+            data = 4
+        )
+
         val params = FakeGetGitRepoReliabilityFactorUseCase.Params.mock()
 
         val result = GetGitRepoReliabilityFactorUseCase(

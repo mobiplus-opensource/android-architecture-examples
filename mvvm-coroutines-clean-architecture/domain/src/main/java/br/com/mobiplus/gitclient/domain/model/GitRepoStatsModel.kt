@@ -2,8 +2,8 @@ package br.com.mobiplus.gitclient.domain.model
 
 data class GitRepoStatsModel(
     val name: String,
-    val closedIssuesOnLastMonth: Int,
-    val openedIssuesOnLastMonth: Int,
-    val mergedPullRequestsOnLastMonth: Int,
-    val proposedPullRequestsOnLastMonth: Int
+    val closedIssues: Int,
+    val openedIssues: Int,
+    val mergedPullRequests: Int,
+    val proposedPullRequests: Int
 )

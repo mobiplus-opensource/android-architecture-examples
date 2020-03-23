@@ -23,10 +23,10 @@ class GetGitRepoReliabilityFactorUseCase(
         return { gitRepoStatsModel ->
             calculateReliabilityFactor(
                 engagementMultiplier = 4,
-                closedIssues = gitRepoStatsModel.closedIssuesOnLastMonth,
-                openedIssues = gitRepoStatsModel.openedIssuesOnLastMonth,
-                mergedPullRequests = gitRepoStatsModel.mergedPullRequestsOnLastMonth,
-                proposedPullRequests = gitRepoStatsModel.proposedPullRequestsOnLastMonth
+                closedIssues = gitRepoStatsModel.closedIssues,
+                openedIssues = gitRepoStatsModel.openedIssues,
+                mergedPullRequests = gitRepoStatsModel.mergedPullRequests,
+                proposedPullRequests = gitRepoStatsModel.proposedPullRequests
             )
         }
     }

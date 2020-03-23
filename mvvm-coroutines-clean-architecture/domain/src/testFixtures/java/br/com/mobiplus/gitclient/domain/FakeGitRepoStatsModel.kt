@@ -6,10 +6,10 @@ class FakeGitRepoStatsModel {
     companion object {
         fun mock() = GitRepoStatsModel(
             name = "",
-            closedIssuesOnLastMonth = 1,
-            openedIssuesOnLastMonth = 1,
-            mergedPullRequestsOnLastMonth = 1,
-            proposedPullRequestsOnLastMonth = 1
+            closedIssues = 1,
+            openedIssues = 1,
+            mergedPullRequests = 1,
+            proposedPullRequests = 1
         )
 
         fun mock(
@@ -19,10 +19,10 @@ class FakeGitRepoStatsModel {
             proposedPullRequests: Int
         ) = GitRepoStatsModel(
             name = "",
-            closedIssuesOnLastMonth = closedIssues,
-            openedIssuesOnLastMonth = openedIssues,
-            mergedPullRequestsOnLastMonth = mergedPullRequests,
-            proposedPullRequestsOnLastMonth = proposedPullRequests
+            closedIssues = closedIssues,
+            openedIssues = openedIssues,
+            mergedPullRequests = mergedPullRequests,
+            proposedPullRequests = proposedPullRequests
         )
     }
 }

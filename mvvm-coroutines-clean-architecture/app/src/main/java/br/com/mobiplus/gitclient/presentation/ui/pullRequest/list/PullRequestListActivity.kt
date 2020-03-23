@@ -5,8 +5,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import br.com.mobiplus.gitclient.R
 import br.com.mobiplus.gitclient.domain.model.PullRequestModel
-import com.example.basearch.R
 import br.com.mobiplus.gitclient.presentation.extensions.setGone
 import br.com.mobiplus.gitclient.presentation.extensions.setVisible
 import br.com.mobiplus.gitclient.presentation.extensions.showToast

@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import br.com.mobiplus.gitclient.R
 import br.com.mobiplus.gitclient.presentation.extensions.setGone
 import br.com.mobiplus.gitclient.presentation.extensions.setVisible
 import br.com.mobiplus.gitclient.presentation.extensions.showToast
@@ -12,7 +13,6 @@ import br.com.mobiplus.gitclient.presentation.ui.gitRepo.adapter.GitRepoAdapterL
 import br.com.mobiplus.gitclient.presentation.ui.gitRepo.adapter.GitRepoListAdapter
 import br.com.mobiplus.gitclient.presentation.ui.gitRepo.model.GitRepoUIModel
 import br.com.mobiplus.gitclient.presentation.ui.pullRequest.list.PullRequestListActivity
-import com.example.basearch.R
 import kotlinx.android.synthetic.main.activity_git_repo_list.*
 
 import org.koin.androidx.viewmodel.ext.android.viewModel

@@ -3,11 +3,11 @@ package br.com.mobiplus.gitclient.presentation.ui.activity
 import android.content.Intent
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
 import androidx.test.rule.ActivityTestRule
+import br.com.mobiplus.gitclient.R
 import br.com.mobiplus.gitclient.domain.FakePullRequestModel
 import br.com.mobiplus.gitclient.domain.FakeResultWrapper
 import br.com.mobiplus.gitclient.domain.FakeUserModel
 import br.com.mobiplus.gitclient.domain.usecases.GetPullRequestUseCase
-import com.example.basearch.R
 import br.com.mobiplus.gitclient.presentation.ui.pullRequest.details.PullRequestActivity
 import br.com.mobiplus.gitclient.presentation.ui.pullRequest.details.PullRequestViewModel
 import com.schibsted.spain.barista.assertion.BaristaVisibilityAssertions.assertDisplayed

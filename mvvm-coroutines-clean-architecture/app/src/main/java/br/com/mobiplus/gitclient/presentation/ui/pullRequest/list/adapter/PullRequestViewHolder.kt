@@ -4,9 +4,9 @@ import android.app.Activity
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import br.com.mobiplus.gitclient.domain.model.PullRequestModel
+import br.com.mobiplus.gitclient.R
 import br.com.mobiplus.gitclient.domain.extensions.toCacheFormat
 import com.bumptech.glide.Glide
-import com.example.basearch.R
 import br.com.mobiplus.gitclient.presentation.extensions.isValidForGlide
 import kotlinx.android.synthetic.main.item_pull_request_list.view.*
 

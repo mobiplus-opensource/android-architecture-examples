@@ -4,8 +4,8 @@ import android.app.Activity
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import br.com.mobiplus.gitclient.R
 import br.com.mobiplus.gitclient.presentation.ui.gitRepo.model.GitRepoUIModel
-import com.example.basearch.R
 
 class GitRepoListAdapter(
     private val activity: Activity,

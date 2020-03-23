@@ -1,5 +1,6 @@
 package br.com.mobiplus.gitclient.data.di
 
+import br.com.mobiplus.gitclient.data.featureFlag.FeatureFlagDataSource
 import br.com.mobiplus.gitclient.data.gitRepo.GitRepoRepositoryImpl
 import br.com.mobiplus.gitclient.data.gitRepo.remote.GitRepoAPIDataSource
 import br.com.mobiplus.gitclient.data.gitRepo.remote.GitRepoStatsDataSource
@@ -13,7 +14,8 @@ val repositoryModule = module {
     factory<GitRepoRepository> {
         GitRepoRepositoryImpl(
             get() as GitRepoAPIDataSource,
-            get() as GitRepoStatsDataSource
+            get() as GitRepoStatsDataSource,
+            get() as FeatureFlagDataSource
         )
     }
 

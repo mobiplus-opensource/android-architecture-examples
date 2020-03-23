@@ -1,11 +1,13 @@
 package br.com.mobiplus.gitclient.data.gitRepo
 
+import br.com.mobiplus.gitclient.data.featureFlag.FeatureFlagDataSource
 import br.com.mobiplus.gitclient.data.gitRepo.remote.GitRepoAPIDataSource
 import br.com.mobiplus.gitclient.data.gitRepo.remote.GitRepoStatsDataSource
 import br.com.mobiplus.gitclient.data.gitRepo.remote.model.GetRepoListResponse
 import br.com.mobiplus.gitclient.domain.base.BaseErrorData
 import br.com.mobiplus.gitclient.domain.base.resultwrapper.FullResultWrapper
 import br.com.mobiplus.gitclient.domain.base.resultwrapper.ResultWrapper
+import br.com.mobiplus.gitclient.domain.model.FeatureFlagModel
 import br.com.mobiplus.gitclient.domain.model.GitRepoModel
 import br.com.mobiplus.gitclient.domain.model.GitRepoStatsModel
 import br.com.mobiplus.gitclient.domain.model.GithubError
@@ -13,7 +15,8 @@ import br.com.mobiplus.gitclient.domain.repository.GitRepoRepository
 
 class GitRepoRepositoryImpl(
     private val gitRepoAPIDataSource: GitRepoAPIDataSource,
-    private val gitRepoStatsDataSource: GitRepoStatsDataSource
+    private val gitRepoStatsDataSource: GitRepoStatsDataSource,
+    private val featureFlagDataSource: FeatureFlagDataSource
 ) : GitRepoRepository {
 
     override suspend fun getGitRepoList(
@@ -59,5 +62,9 @@ class GitRepoRepositoryImpl(
             .transformSuccess {
                 it.mapTo()
             }
+    }
+
+    override fun getGitRepoReliabilityMultiplier(): FeatureFlagModel<Int> {
+        return featureFlagDataSource.getReliabilityFactorMultiplier()
     }
 }

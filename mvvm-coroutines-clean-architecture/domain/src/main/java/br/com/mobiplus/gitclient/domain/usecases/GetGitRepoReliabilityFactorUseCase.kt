@@ -9,20 +9,28 @@ import br.com.mobiplus.gitclient.domain.repository.GitRepoRepository
 
 class GetGitRepoReliabilityFactorUseCase(
     private val gitRepoRepository: GitRepoRepository
-) : BaseUseCase<ResultWrapper<Double, BaseErrorData<GithubError>>, GetGitRepoReliabilityFactorUseCase.Params>() {
+) : BaseUseCase<ResultWrapper<Double?, BaseErrorData<GithubError>>, GetGitRepoReliabilityFactorUseCase.Params>() {
 
-    override fun runSync(params: Params): ResultWrapper<Double, BaseErrorData<GithubError>> {
-        val result = gitRepoRepository.getGitRepoStats(params.owner, params.gitRepoName)
+    override fun runSync(params: Params): ResultWrapper<Double?, BaseErrorData<GithubError>> {
+        val (enabled, multiplier) = gitRepoRepository.getGitRepoReliabilityMultiplier()
 
-        return result.transformSuccess(
-            transformSuccess()
-        )
+        return if (enabled) {
+            val result = gitRepoRepository.getGitRepoStats(params.owner, params.gitRepoName)
+
+            result.transformSuccess(
+                this.transformSuccess(multiplier!!)
+            )
+        } else {
+            ResultWrapper(
+                success = null
+            )
+        }
     }
 
-    private fun transformSuccess(): (GitRepoStatsModel) -> Double {
+    private fun transformSuccess(multiplier: Int): (GitRepoStatsModel) -> Double {
         return { gitRepoStatsModel ->
             calculateReliabilityFactor(
-                engagementMultiplier = 4,
+                engagementMultiplier = multiplier,
                 closedIssues = gitRepoStatsModel.closedIssues,
                 openedIssues = gitRepoStatsModel.openedIssues,
                 mergedPullRequests = gitRepoStatsModel.mergedPullRequests,

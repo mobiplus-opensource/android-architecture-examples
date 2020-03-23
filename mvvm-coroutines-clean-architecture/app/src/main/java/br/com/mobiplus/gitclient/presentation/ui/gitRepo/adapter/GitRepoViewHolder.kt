@@ -5,6 +5,7 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import br.com.mobiplus.gitclient.R
 import br.com.mobiplus.gitclient.presentation.extensions.isValidForGlide
+import br.com.mobiplus.gitclient.presentation.extensions.setGone
 import br.com.mobiplus.gitclient.presentation.ui.gitRepo.model.GitRepoUIModel
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.item_repo_list.view.*
@@ -17,7 +18,12 @@ class GitRepoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         itemView.textStarsCount.text = gitRepo.stargazersCount.toString()
         itemView.textForksCount.text = gitRepo.forksCount.toString()
         itemView.textIssuesCount.text = gitRepo.openIssuesCount.toString()
-        itemView.textReliability.text = gitRepo.reliabilityFactor
+
+        if (gitRepo.reliabilityFactor != null) {
+            itemView.textReliability.text = gitRepo.reliabilityFactor
+        } else {
+            itemView.textReliability.setGone()
+        }
 
         if (activity.isValidForGlide()) {
             Glide.with(activity)

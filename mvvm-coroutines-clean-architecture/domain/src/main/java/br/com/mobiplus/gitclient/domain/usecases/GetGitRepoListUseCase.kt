@@ -14,21 +14,18 @@ class GetGitRepoListUseCase(
 ) : BaseAsyncUseCase<ResultWrapper<List<GitRepoModel>, BaseErrorData<GithubError>>, Params>() {
 
     override suspend fun runAsync(params: Params): ResultWrapper<List<GitRepoModel>, BaseErrorData<GithubError>> {
-        return gitRepoRepository.getGitRepoList(
+        val gitRepoList = gitRepoRepository.getGitRepoList(
             page = 1,
             language = "java"
-        ).transformSuccess(transformSuccess())
+        )
+        return gitRepoList.transformSuccess(transformSuccess())
     }
 
     private fun transformSuccess(): (List<GitRepoModel>) -> List<GitRepoModel> {
         return { gitRepoList ->
             gitRepoList.map { gitRepoModel ->
-                val reliabilityResult = getGitRepoReliabilityFactorUseCase.runSync(
-                    GetGitRepoReliabilityFactorUseCase.Params(
-                        owner = gitRepoModel.ownerModel.login!!,
-                        gitRepoName = gitRepoModel.name!!
-                    )
-                )
+                val params = this.loadParams(gitRepoModel)
+                val reliabilityResult = getGitRepoReliabilityFactorUseCase.runSync(params)
 
                 reliabilityResult.success?.apply {
                     gitRepoModel.reliabilityFactor = this
@@ -37,6 +34,13 @@ class GetGitRepoListUseCase(
 
             gitRepoList
         }
+    }
+
+    private fun loadParams(gitRepoModel: GitRepoModel): GetGitRepoReliabilityFactorUseCase.Params {
+        return GetGitRepoReliabilityFactorUseCase.Params(
+            owner = gitRepoModel.ownerModel.login!!,
+            gitRepoName = gitRepoModel.name!!
+        )
     }
 
     class Params

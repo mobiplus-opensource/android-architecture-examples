@@ -4,5 +4,6 @@ val dataModule = listOf(
     networkModule,
     localDataSourceModule,
     apiDataSourceModule,
-    repositoryModule
+    repositoryModule,
+    firebaseRemoteConfigDataSourceModule
 )

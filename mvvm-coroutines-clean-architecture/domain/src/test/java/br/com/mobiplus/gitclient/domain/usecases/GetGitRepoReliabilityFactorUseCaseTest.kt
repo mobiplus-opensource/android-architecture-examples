@@ -3,8 +3,10 @@ package br.com.mobiplus.gitclient.domain.usecases
 import br.com.mobiplus.gitclient.domain.FakeGetGitRepoReliabilityFactorUseCase
 import br.com.mobiplus.gitclient.domain.FakeGitRepoStatsModel
 import br.com.mobiplus.gitclient.domain.FakeResultWrapper
+import br.com.mobiplus.gitclient.domain.model.FeatureFlagModel
 import br.com.mobiplus.gitclient.domain.repository.GitRepoRepository
 import io.mockk.MockKAnnotations
+import io.mockk.coVerifySequence
 import io.mockk.every
 import io.mockk.impl.annotations.MockK
 import io.mockk.verify
@@ -30,17 +32,22 @@ class GetGitRepoReliabilityFactorUseCaseTest {
             success = FakeGitRepoStatsModel.mock()
         )
 
+        every {
+            gitRepoRepository.getGitRepoReliabilityMultiplier()
+        } returns FeatureFlagModel(
+            enabled = true,
+            data = 4
+        )
+
         val params = FakeGetGitRepoReliabilityFactorUseCase.Params.mock()
 
         GetGitRepoReliabilityFactorUseCase(
             gitRepoRepository = gitRepoRepository
         ).runSync(params)
 
-        verify(exactly = 1) {
-            gitRepoRepository.getGitRepoStats(
-                owner = params.owner,
-                gitRepoName = params.gitRepoName
-            )
+        coVerifySequence {
+            gitRepoRepository.getGitRepoReliabilityMultiplier()
+            gitRepoRepository.getGitRepoStats(any(), any())
         }
     }
 

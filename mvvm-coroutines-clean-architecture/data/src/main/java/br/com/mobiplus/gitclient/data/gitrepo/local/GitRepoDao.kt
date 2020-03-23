@@ -1,7 +1,7 @@
-package br.com.mobiplus.gitclient.data.gitRepo.local
+package br.com.mobiplus.gitclient.data.gitrepo.local
 
 import androidx.room.*
-import br.com.mobiplus.gitclient.data.gitRepo.local.model.GitRepoEntityModel
+import br.com.mobiplus.gitclient.data.gitrepo.local.model.GitRepoEntityModel
 
 @Dao
 interface GitRepoDao {

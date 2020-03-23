@@ -1,9 +1,9 @@
 package br.com.mobiplus.gitclient.data.di
 
 import br.com.mobiplus.gitclient.data.featureFlag.FeatureFlagDataSource
-import br.com.mobiplus.gitclient.data.gitRepo.GitRepoRepositoryImpl
-import br.com.mobiplus.gitclient.data.gitRepo.remote.GitRepoAPIDataSource
-import br.com.mobiplus.gitclient.data.gitRepo.remote.GitRepoStatsDataSource
+import br.com.mobiplus.gitclient.data.gitrepo.GitRepoRepositoryImpl
+import br.com.mobiplus.gitclient.data.gitrepo.remote.GitRepoAPIDataSource
+import br.com.mobiplus.gitclient.data.gitrepo.remote.GitRepoStatsDataSource
 import br.com.mobiplus.gitclient.data.pullRequest.PullRequestAPIDataSource
 import br.com.mobiplus.gitclient.data.pullRequest.PullRequestRepositoryImpl
 import br.com.mobiplus.gitclient.domain.repository.GitRepoRepository

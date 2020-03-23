@@ -1,4 +1,4 @@
-package br.com.mobiplus.gitclient.data.gitRepo.remote.model
+package br.com.mobiplus.gitclient.data.gitrepo.remote.model
 
 import br.com.mobiplus.gitclient.domain.model.OwnerModel
 import com.google.gson.annotations.SerializedName

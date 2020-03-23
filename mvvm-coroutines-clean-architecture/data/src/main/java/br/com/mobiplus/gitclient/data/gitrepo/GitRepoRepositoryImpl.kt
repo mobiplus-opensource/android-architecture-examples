@@ -1,9 +1,9 @@
-package br.com.mobiplus.gitclient.data.gitRepo
+package br.com.mobiplus.gitclient.data.gitrepo
 
 import br.com.mobiplus.gitclient.data.featureFlag.FeatureFlagDataSource
-import br.com.mobiplus.gitclient.data.gitRepo.remote.GitRepoAPIDataSource
-import br.com.mobiplus.gitclient.data.gitRepo.remote.GitRepoStatsDataSource
-import br.com.mobiplus.gitclient.data.gitRepo.remote.model.GetRepoListResponse
+import br.com.mobiplus.gitclient.data.gitrepo.remote.GitRepoAPIDataSource
+import br.com.mobiplus.gitclient.data.gitrepo.remote.GitRepoStatsDataSource
+import br.com.mobiplus.gitclient.data.gitrepo.remote.model.GetRepoListResponse
 import br.com.mobiplus.gitclient.domain.base.BaseErrorData
 import br.com.mobiplus.gitclient.domain.base.resultwrapper.FullResultWrapper
 import br.com.mobiplus.gitclient.domain.base.resultwrapper.ResultWrapper

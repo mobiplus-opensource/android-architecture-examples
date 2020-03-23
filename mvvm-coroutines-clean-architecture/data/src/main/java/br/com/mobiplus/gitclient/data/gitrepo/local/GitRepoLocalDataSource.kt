@@ -1,7 +1,7 @@
-package br.com.mobiplus.gitclient.data.gitRepo.local
+package br.com.mobiplus.gitclient.data.gitrepo.local
 
 import br.com.mobiplus.gitclient.data.base.BaseDataSourceImpl
-import br.com.mobiplus.gitclient.data.gitRepo.local.model.GitRepoEntityModel
+import br.com.mobiplus.gitclient.data.gitrepo.local.model.GitRepoEntityModel
 import br.com.mobiplus.gitclient.domain.base.BaseErrorData
 import br.com.mobiplus.gitclient.domain.base.resultwrapper.ResultWrapper
 

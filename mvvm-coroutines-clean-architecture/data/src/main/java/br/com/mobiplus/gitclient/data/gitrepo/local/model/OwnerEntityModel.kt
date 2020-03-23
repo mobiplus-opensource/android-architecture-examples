@@ -1,4 +1,4 @@
-package br.com.mobiplus.gitclient.data.gitRepo.local.model
+package br.com.mobiplus.gitclient.data.gitrepo.local.model
 
 import androidx.annotation.NonNull
 import androidx.room.ColumnInfo

@@ -1,8 +1,8 @@
 package br.com.mobiplus.gitclient.data.di
 
-import br.com.mobiplus.gitclient.data.gitRepo.remote.GitRepoAPIDataSource
-import br.com.mobiplus.gitclient.data.gitRepo.remote.GitRepoApi
-import br.com.mobiplus.gitclient.data.gitRepo.remote.GitRepoStatsDataSource
+import br.com.mobiplus.gitclient.data.gitrepo.remote.GitRepoAPIDataSource
+import br.com.mobiplus.gitclient.data.gitrepo.remote.GitRepoApi
+import br.com.mobiplus.gitclient.data.gitrepo.remote.GitRepoStatsDataSource
 import br.com.mobiplus.gitclient.data.pullRequest.PullRequestAPIDataSource
 import br.com.mobiplus.gitclient.data.pullRequest.PullRequestApi
 import org.koin.dsl.module

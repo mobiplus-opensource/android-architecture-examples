@@ -1,4 +1,4 @@
-package br.com.mobiplus.gitclient.data.gitRepo.remote.model
+package br.com.mobiplus.gitclient.data.gitrepo.remote.model
 
 import com.google.gson.annotations.SerializedName
 

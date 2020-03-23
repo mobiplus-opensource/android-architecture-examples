@@ -1,4 +1,4 @@
-package br.com.mobiplus.gitclient.data.gitrepo.remote.model
+package br.com.mobiplus.gitclient.data.gitRepo.remote.model
 
 import br.com.mobiplus.gitclient.domain.model.GitRepoStatsModel
 

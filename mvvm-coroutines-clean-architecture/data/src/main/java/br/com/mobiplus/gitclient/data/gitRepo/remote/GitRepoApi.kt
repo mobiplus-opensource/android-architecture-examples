@@ -1,6 +1,6 @@
-package br.com.mobiplus.gitclient.data.gitrepo.remote
+package br.com.mobiplus.gitclient.data.gitRepo.remote
 
-import br.com.mobiplus.gitclient.data.gitrepo.remote.model.GetRepoListResponse
+import br.com.mobiplus.gitclient.data.gitRepo.remote.model.GetRepoListResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

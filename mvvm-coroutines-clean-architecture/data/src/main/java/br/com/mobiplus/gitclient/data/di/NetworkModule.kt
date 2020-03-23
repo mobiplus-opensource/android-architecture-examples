@@ -1,7 +1,7 @@
 package br.com.mobiplus.gitclient.data.di
 
 import br.com.mobiplus.gitclient.R
-import br.com.mobiplus.gitclient.data.gitrepo.remote.GitRepoApi
+import br.com.mobiplus.gitclient.data.gitRepo.remote.GitRepoApi
 import br.com.mobiplus.gitclient.data.pullRequest.PullRequestApi
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

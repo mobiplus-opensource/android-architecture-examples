@@ -1,12 +1,10 @@
 package br.com.mobiplus.gitclient.domain.usecases
 
 import br.com.mobiplus.gitclient.domain.FakeGitRepoModel
+import br.com.mobiplus.gitclient.domain.FakeResultWrapper
 import br.com.mobiplus.gitclient.domain.base.resultwrapper.ResultWrapper
 import br.com.mobiplus.gitclient.domain.repository.GitRepoRepository
-import io.mockk.MockKAnnotations
-import io.mockk.coEvery
-import io.mockk.coVerify
-import io.mockk.confirmVerified
+import io.mockk.*
 import io.mockk.impl.annotations.MockK
 import kotlinx.coroutines.runBlocking
 import org.junit.Before
@@ -20,34 +18,35 @@ class GetGitRepoListUseCaseTest {
     @MockK(relaxUnitFun = true)
     private lateinit var getGitRepoReliabilityFactorUseCase: GetGitRepoReliabilityFactorUseCase
 
-    private val fakePage = 1
-    private val fakeLanguage = "java"
-
     @Before
     fun setUp() {
         MockKAnnotations.init(this)
     }
 
     @Test
-    fun `SHOULD save last sync date WHEN force sync param is true`() = runBlocking {
+    fun `SHOULD call correct functions WHEN runSync is called`() {
         coEvery {
-            gitRepoRepository.getGitRepoList(
-                page = fakePage,
-                language = fakeLanguage
-            )
-        } returns ResultWrapper(
+            gitRepoRepository.getGitRepoList(any(), any())
+        } returns FakeResultWrapper.mockSuccess(
             success = FakeGitRepoModel.mock(1)
         )
 
-        GetGitRepoListUseCase(gitRepoRepository, getGitRepoReliabilityFactorUseCase).runAsync(GetGitRepoListUseCase.Params())
+        every {
+            getGitRepoReliabilityFactorUseCase.runSync(any())
+        } returns FakeResultWrapper.mockSuccess(
+            success = 2.0
+        )
 
-        coVerify {
-            gitRepoRepository.getGitRepoList(
-                page = fakePage,
-                language = fakeLanguage
-            )
+        runBlocking {
+            GetGitRepoListUseCase(
+                gitRepoRepository,
+                getGitRepoReliabilityFactorUseCase
+            ).runAsync(GetGitRepoListUseCase.Params())
         }
 
-        confirmVerified(gitRepoRepository)
+        coVerifySequence {
+            gitRepoRepository.getGitRepoList(any(), any())
+            getGitRepoReliabilityFactorUseCase.runSync(any())
+        }
     }
 }

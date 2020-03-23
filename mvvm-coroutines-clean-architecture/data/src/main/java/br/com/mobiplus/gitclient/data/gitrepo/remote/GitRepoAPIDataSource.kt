@@ -1,7 +1,7 @@
 package br.com.mobiplus.gitclient.data.gitrepo.remote
 
-import br.com.mobiplus.gitclient.data.gitrepo.remote.model.GetRepoListResponse
 import br.com.mobiplus.gitclient.data.base.BaseDataSourceImpl
+import br.com.mobiplus.gitclient.data.gitrepo.remote.model.GetRepoListResponse
 import br.com.mobiplus.gitclient.domain.base.BaseErrorData
 import br.com.mobiplus.gitclient.domain.base.resultwrapper.FullResultWrapper
 import br.com.mobiplus.gitclient.domain.model.GithubError

@@ -1,9 +1,9 @@
 package br.com.mobiplus.gitclient.data.base
 
 import br.com.mobiplus.gitclient.domain.base.BaseErrorData
-import br.com.mobiplus.gitclient.domain.base.resultwrapper.ResultWrapper
 import br.com.mobiplus.gitclient.domain.base.ResultCode
 import br.com.mobiplus.gitclient.domain.base.resultwrapper.FullResultWrapper
+import br.com.mobiplus.gitclient.domain.base.resultwrapper.ResultWrapper
 import retrofit2.Response
 import java.io.IOException
 import java.net.ConnectException

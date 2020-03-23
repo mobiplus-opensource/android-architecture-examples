@@ -7,12 +7,10 @@ import br.com.mobiplus.gitclient.domain.repository.GitRepoRepository
 import io.mockk.MockKAnnotations
 import io.mockk.every
 import io.mockk.impl.annotations.MockK
-import io.mockk.mockk
 import io.mockk.verify
+import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
-
-import org.junit.Assert.*
 
 class GetGitRepoReliabilityFactorUseCaseTest {
 

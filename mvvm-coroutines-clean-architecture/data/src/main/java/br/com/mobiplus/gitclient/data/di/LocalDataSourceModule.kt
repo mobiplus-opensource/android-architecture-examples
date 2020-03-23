@@ -1,8 +1,8 @@
 package br.com.mobiplus.gitclient.data.di
 
 import androidx.room.Room
-import br.com.mobiplus.gitclient.data.base.WBDatabase
 import br.com.mobiplus.gitclient.data.base.SharedPreferencesUtil
+import br.com.mobiplus.gitclient.data.base.WBDatabase
 import br.com.mobiplus.gitclient.data.gitrepo.local.GitRepoLocalDataSource
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module

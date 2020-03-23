@@ -5,14 +5,14 @@ import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import br.com.mobiplus.gitclient.domain.model.PullRequestModel
 import br.com.mobiplus.gitclient.R
 import br.com.mobiplus.gitclient.domain.extensions.toCacheFormat
-import com.bumptech.glide.Glide
+import br.com.mobiplus.gitclient.domain.model.PullRequestModel
 import br.com.mobiplus.gitclient.presentation.extensions.setGone
 import br.com.mobiplus.gitclient.presentation.extensions.setVisible
 import br.com.mobiplus.gitclient.presentation.ui.base.Navigator
 import br.com.mobiplus.gitclient.presentation.ui.base.ViewState
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_pull_request.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

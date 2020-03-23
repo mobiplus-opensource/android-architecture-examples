@@ -2,9 +2,11 @@ package br.com.mobiplus.gitclient.domain.usecases
 
 import br.com.mobiplus.gitclient.domain.FakeGitRepoModel
 import br.com.mobiplus.gitclient.domain.FakeResultWrapper
-import br.com.mobiplus.gitclient.domain.base.resultwrapper.ResultWrapper
 import br.com.mobiplus.gitclient.domain.repository.GitRepoRepository
-import io.mockk.*
+import io.mockk.MockKAnnotations
+import io.mockk.coEvery
+import io.mockk.coVerifySequence
+import io.mockk.every
 import io.mockk.impl.annotations.MockK
 import kotlinx.coroutines.runBlocking
 import org.junit.Before

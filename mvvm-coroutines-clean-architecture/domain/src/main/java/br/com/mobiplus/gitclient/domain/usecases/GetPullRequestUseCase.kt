@@ -1,7 +1,6 @@
 package br.com.mobiplus.gitclient.domain.usecases
 
 import br.com.mobiplus.gitclient.domain.base.BaseErrorData
-import br.com.mobiplus.gitclient.domain.base.ResultCode
 import br.com.mobiplus.gitclient.domain.base.resultwrapper.ResultWrapper
 import br.com.mobiplus.gitclient.domain.base.usecase.BaseAsyncUseCase
 import br.com.mobiplus.gitclient.domain.model.GithubError

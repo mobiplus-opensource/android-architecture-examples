@@ -7,7 +7,6 @@ import br.com.mobiplus.gitclient.domain.model.GitRepoModel
 import br.com.mobiplus.gitclient.domain.model.GithubError
 import br.com.mobiplus.gitclient.domain.repository.GitRepoRepository
 import br.com.mobiplus.gitclient.domain.usecases.GetGitRepoListUseCase.Params
-import com.sun.xml.internal.ws.addressing.EndpointReferenceUtil.transform
 
 class GetGitRepoListUseCase(
     private val gitRepoRepository: GitRepoRepository,

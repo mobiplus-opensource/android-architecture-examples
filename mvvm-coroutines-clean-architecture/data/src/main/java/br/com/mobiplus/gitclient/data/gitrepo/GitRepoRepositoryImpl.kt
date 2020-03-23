@@ -3,7 +3,6 @@ package br.com.mobiplus.gitclient.data.gitrepo
 import br.com.mobiplus.gitclient.data.gitrepo.remote.GitRepoAPIDataSource
 import br.com.mobiplus.gitclient.data.gitrepo.remote.GitRepoStatsDataSource
 import br.com.mobiplus.gitclient.data.gitrepo.remote.model.GetRepoListResponse
-import br.com.mobiplus.gitclient.data.gitrepo.remote.model.GitRepoStatsResponseModel
 import br.com.mobiplus.gitclient.domain.base.BaseErrorData
 import br.com.mobiplus.gitclient.domain.base.resultwrapper.FullResultWrapper
 import br.com.mobiplus.gitclient.domain.base.resultwrapper.ResultWrapper

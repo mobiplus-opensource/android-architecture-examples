@@ -1,7 +1,6 @@
 package br.com.mobiplus.gitclient.domain
 
 import br.com.mobiplus.gitclient.domain.base.BaseErrorData
-import br.com.mobiplus.gitclient.domain.base.ResultCode
 import br.com.mobiplus.gitclient.domain.model.GithubError
 
 class FakeBaseErrorData {

@@ -13,7 +13,10 @@ import br.com.mobiplus.gitclient.presentation.ui.base.ViewState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class PullRequestViewModel(private val getPullRequestUseCase: GetPullRequestUseCase) : ViewModel() {
+class PullRequestViewModel(
+    private val getPullRequestUseCase: GetPullRequestUseCase
+) : ViewModel() {
+
     private val _pullRequestState =
         MutableLiveData<ViewState<PullRequestModel, BaseErrorData<GithubError>>>()
     val pullRequestState: LiveData<ViewState<PullRequestModel, BaseErrorData<GithubError>>>

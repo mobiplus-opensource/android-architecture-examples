@@ -14,7 +14,9 @@ import br.com.mobiplus.gitclient.presentation.ui.gitRepo.model.GitRepoUIModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class GitRepoListViewModel(private val getGitRepoListUseCase: GetGitRepoListUseCase) : ViewModel() {
+class GitRepoListViewModel(
+    private val getGitRepoListUseCase: GetGitRepoListUseCase
+) : ViewModel() {
     private val _gitRepoListState =
         MutableLiveData<ViewState<List<GitRepoUIModel>, BaseErrorData<GithubError>>>()
     val gitRepoListState: LiveData<ViewState<List<GitRepoUIModel>, BaseErrorData<GithubError>>>

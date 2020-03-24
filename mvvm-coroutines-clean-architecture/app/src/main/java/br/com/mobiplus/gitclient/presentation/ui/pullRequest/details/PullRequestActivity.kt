@@ -6,7 +6,9 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import br.com.mobiplus.gitclient.R
+import br.com.mobiplus.gitclient.domain.base.BaseErrorData
 import br.com.mobiplus.gitclient.domain.extensions.toCacheFormat
+import br.com.mobiplus.gitclient.domain.model.GithubError
 import br.com.mobiplus.gitclient.domain.model.PullRequestModel
 import br.com.mobiplus.gitclient.presentation.extensions.setGone
 import br.com.mobiplus.gitclient.presentation.extensions.setVisible
@@ -62,7 +64,11 @@ class PullRequestActivity : AppCompatActivity() {
     }
 
     private fun initObservers() {
-        viewModel.pullRequestState.observe(this, Observer {
+        viewModel.pullRequestState.observe(this, handlePullRequestState())
+    }
+
+    private fun handlePullRequestState(): Observer<ViewState<PullRequestModel, BaseErrorData<GithubError>>> {
+        return Observer {
             when (it) {
                 is ViewState.Loading -> {
                     showLoadingView()
@@ -76,7 +82,7 @@ class PullRequestActivity : AppCompatActivity() {
                     showErrorView(it.error.toString())
                 }
             }
-        })
+        }
     }
 
     //region ViewStates
